@@ -1,5 +1,5 @@
 <template>
     <div class="landing">
-        <p>Landing page</p>
+        <span>Creative Developer</span>
     </div>
 </template>

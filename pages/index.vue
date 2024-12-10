@@ -1,0 +1,4 @@
+<template>
+    <navbar />
+    <landing />
+</template>

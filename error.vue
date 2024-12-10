@@ -1,3 +1,3 @@
 <template>
-  <NuxtPage />
+  error
 </template>

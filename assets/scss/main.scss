@@ -1,0 +1,16 @@
+// Abstracts
+@import 'abstracts/variables';
+
+// Components
+@import 'components/navbar';
+
+* {
+    margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.landing {
+    height: 100vh;
+    background-color: beige;
+}

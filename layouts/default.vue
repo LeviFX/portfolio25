@@ -1,4 +1,5 @@
 <template>
     <navbar />
-    <h1>about</h1>
+    <slot />
+    <PageFooter />
 </template>

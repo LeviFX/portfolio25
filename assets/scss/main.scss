@@ -19,82 +19,12 @@ body {
     height: 100vh;
     background-color: #f8f6ee;
     .content {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        z-index: 1;
-        .welcome-text {
-            position: relative;
-            top: 44%;
-            color: red;
-            left: 40%;
-        }
     }
-    // .horizontal-grid {
-    //     max-width: 50%;
-    //     left: 0;
-    //     height: 100%;
-    //     position: absolute;
-    //     width: 100%;
-    //     .line {
-    //         position: relative;
-    //         background-color: #29272535;
-    //         height: 2px;
-    //         &.first {
-    //             top: 15%;
-    //             width: 90%;
-    //         }
-    //         &.second {
-    //             top: 30%;
-    //             width: 70%;
-    //         }
-    //         &.third {
-    //             top: 45%;
-    //             width: 75%;
-    //         }
-    //         &.fourth {
-    //             top: 60%;
-    //             width: 60%;
-    //         }
-    //         &.fifth {
-    //             top: 75%;
-    //             width: 40%;
-    //         }
-    //     }
-    // }
-    // .vertical-grid {
-    //     max-width: 60%;
-    //     left: 0;
-    //     height: 100%;
-    //     position: absolute;
-    //     width: 100%;
-    //     .line {
-    //         position: absolute;
-    //         background-color: #29272535;
-    //         width: 2px;
-    //         &.first {
-    //             left: 15%;
-    //             height: 100%;
-    //         }
-    //         &.second {
-    //             left: 30%;
-    //             height: 80%;
-    //         }
-    //         &.third {
-    //             left: 45%;
-    //             height: 92%;
-    //         }
-    //         &.fourth {
-    //             left: 60%;
-    //             height: 20%;
-    //         }
-    //     }
-    // }
 }
 
-.content-section {
-    background-color: rgba(18, 60, 250, 0.13);
-    max-width: 1400px;
+.projects-section {
+    background-color: #e7ddfd;
+    max-width: $content-width;
     min-height: 65vh;
     height: auto;
     margin-left: auto;
@@ -104,7 +34,7 @@ body {
         .card {
             height: 350px;
             width: 350px;
-            background-color: rgb(203, 214, 98);
+            background-color: #f6fddd;
         }
     }
 }

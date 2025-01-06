@@ -118,6 +118,17 @@
         </div>
     </div>
     <div class="contact-section">
-        Contact
+        <div class="envelope">
+            <img src="assets/img/stamp_compressed.webp" class="stamp" alt="">
+            <div class="input-section">
+                <textarea name="" id="" placeholder="Message"></textarea>
+                <div class="vertical-divider"></div>
+                <div class="sender-wrapper">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="E-mail">
+                </div>
+            </div>
+            <button class="send-seal">Send</button>
+        </div>
     </div>
 </template>

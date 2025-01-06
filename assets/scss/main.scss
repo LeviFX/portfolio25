@@ -138,4 +138,91 @@ body {
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    padding: 3rem;
+    .envelope {
+        margin-left: auto;
+        margin-right: auto;
+        width: 80%;
+        min-height: 35vh;
+        background-color: #ece7dc;
+        border: solid 15px;
+        border-image: 22 repeating-linear-gradient(
+        -45deg,
+        antiquewhite 0px,
+        antiquewhite 15px,
+        #3498db 15px, 
+        #3498db 30px,
+        antiquewhite 30px,
+        antiquewhite 45px,
+        #e74c3c 45px,
+        #e74c3c 60px
+        );
+        box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        .stamp {
+            position: absolute;
+            right: 21px;
+            top: 18px;
+            width: 79px;
+            transform: rotate(2deg);
+        }
+        .send-seal {
+            border: 0;
+            background-color: transparent;
+            background-image: url(assets/img/wax_smaller.webp);
+            background-size: cover;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 78px;
+            height: 77px;
+            color: #fff;
+            transition: 0.2s;
+            &:hover {
+                transform: scale(0.9);
+                transition: 0.2s;
+            }
+        }
+        .input-section {
+            display: flex;
+            justify-content: space-around;
+            textarea {
+                border: 0;
+                outline: none;
+                appearance: none;
+                background-color: transparent;
+                min-width: 50%;
+                min-height: 16vh;
+                background-image: repeating-linear-gradient(transparent 0px, transparent 27px, rgba(0, 0, 0, 0.2) 28px);
+                line-height: 2.1;
+                resize: none;
+            }
+            .vertical-divider {
+                width: 1px;
+                height: 16vh;
+                background-color: rgba(0, 0, 0, 0.1);;
+            }
+            .sender-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+            input {
+                border: 0;
+                outline: none;
+                appearance: none;
+                background-color: transparent;
+                background-color: #ffffff2f;
+                border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
+        }
+    }
 }

@@ -1,9 +1,37 @@
+// TODO:
+// Font fallbacks
+// Remove unnecessary styling
+// Better ordering
+
+// Cool bounce transition: linear(
+//     0, 0.004, 0.016, 0.035, 0.063, 0.098, 0.141 13.6%, 0.25, 0.391, 0.563, 0.765,
+//     1, 0.891 40.9%, 0.848, 0.813, 0.785, 0.766, 0.754, 0.75, 0.754, 0.766, 0.785,
+//     0.813, 0.848, 0.891 68.2%, 1 72.7%, 0.973, 0.953, 0.941, 0.938, 0.941, 0.953,
+//     0.973, 1, 0.988, 0.984, 0.988, 1
+//   )
+
 // Abstracts
 @import 'abstracts/variables';
 
 // Components
 @import 'components/navbar';
 @import 'components/footer';
+
+@font-face {
+    font-family: 'Spectral';
+    src: url('assets/fonts/spectral-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Noto Serif';
+    src: url('assets/fonts/notoserif-regular.woff2') format('woff2');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
 
 * {
     margin: 0;
@@ -13,6 +41,8 @@
 
 body {
     color: $color-gray-800;
+    font-family: 'Spectral';
+    line-height: 1.2;
 }
 
 .landing {
@@ -23,12 +53,17 @@ body {
 }
 
 .projects-section {
-    background-color: #e7ddfd;
+    // background-color: #e7ddfd;
     max-width: $content-width;
     min-height: 65vh;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    .projects-description {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        text-align: center;
+    }
     .bento-grid {
         display: grid;
         grid-gap: 0.5rem;
@@ -82,6 +117,7 @@ body {
                 left: 10px;
                 color: #fff;
                 font-size: 50px;
+                font-family: 'Noto Serif';
                 &.contrast {
                     background-color: rgb(45 45 45 / 38%);
                     backdrop-filter: blur(2px);
@@ -99,13 +135,17 @@ body {
     }
 }
 
-.blog-section {
-    background-color: #ddfdf1;
+.blogs-section {
+    // background-color: #ddfdf1;
     max-width: $content-width;
     min-height: 25vh;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5rem;
+    .blogs-description {
+        margin-bottom: 1rem;
+    }
     .blog-grid {
         display: flex;
         justify-content: space-evenly;
@@ -132,12 +172,13 @@ body {
 }
 
 .contact-section {
-    background-color: #f9ddfd;
+    // background-color: #f9ddfd;
     max-width: $content-width;
     min-height: 30vh;
     height: auto;
     margin-left: auto;
     margin-right: auto;
+    margin-top: 5rem;
     padding: 3rem;
     .envelope {
         margin-left: auto;
@@ -172,7 +213,7 @@ body {
         .send-seal {
             border: 0;
             background-color: transparent;
-            background-image: url(assets/img/wax_smaller.webp);
+            background-image: url(img/wax_send_smaller.webp);
             background-size: cover;
             position: absolute;
             bottom: 20px;
@@ -182,7 +223,7 @@ body {
             color: #fff;
             transition: 0.2s;
             &:hover {
-                transform: scale(0.9);
+                transform: scale(0.95);
                 transition: 0.2s;
             }
         }

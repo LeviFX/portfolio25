@@ -2,7 +2,10 @@
     <div class="landing">
     </div>
     <div class="projects-section">
-        Project view
+        <div class="projects-description">
+            <h1>What I've been working on</h1>
+            <p>A wide range of</p>
+        </div>
         <div class="bento-grid">
             <div class="card large">
                 <div class="category">
@@ -11,7 +14,7 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/animationkeyboard.webp" class="project-thumbnail" alt="">
+                <img src="/img/animationkeyboard.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="category">
@@ -20,7 +23,7 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/astronaut.webp" class="project-thumbnail" alt="">
+                <img src="/img/astronaut.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="category">
@@ -29,7 +32,7 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/cathedral.webp" class="project-thumbnail" alt="">
+                <img src="/img/cathedral.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card vertical">
                 <div class="category">
@@ -38,7 +41,7 @@
                 <div class="project-description contrast">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/remia_small.webp" class="project-thumbnail" alt="">
+                <img src="/img/remia_small.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="category">
@@ -47,7 +50,7 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/sgp3d.webp" class="project-thumbnail" alt="">
+                <img src="/img/sgp3d.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="category">
@@ -56,7 +59,7 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/remia_small.webp" class="project-thumbnail" alt="">
+                <img src="/img/remia_small.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card horizontal">
                 <div class="category">
@@ -65,7 +68,7 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/twirl.webp" class="project-thumbnail" alt="">
+                <img src="/img/twirl.webp" class="project-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="category">
@@ -74,12 +77,15 @@
                 <div class="project-description">
                     Lorem ipsum dolor sit.
                 </div>
-                <img src="assets/img/chess.webp" class="project-thumbnail" alt="">
+                <img src="/img/chess.webp" class="project-thumbnail" alt="">
             </div>
         </div>
     </div>
-    <div class="blog-section">
-        Articles
+    <div class="blogs-section">
+        <div class="blogs-description">
+            <h1>Articles</h1>
+            <p>Lorem, ipsum dolor.</p>
+        </div>
         <div class="blog-grid">
             <div class="card">
                 <div class="blog-content">
@@ -90,7 +96,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam distinctio quidem rem, repudiandae ullam accusamus
                     </span>
                 </div>
-                <img src="assets/img/cover1.png" class="blog-thumbnail" alt="">
+                <img src="/img/cover1.png" class="blog-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="blog-content">
@@ -101,7 +107,7 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam distinctio quidem rem, repudiandae ullam accusamus
                     </span>
                 </div>
-                <img src="assets/img/cover2.png" class="blog-thumbnail" alt="">
+                <img src="/img/cover2.png" class="blog-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="blog-content">
@@ -112,14 +118,17 @@
                         Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam distinctio quidem rem, repudiandae ullam accusamus
                     </span>
                 </div>
-                <img src="assets/img/cover1.png" class="blog-thumbnail" alt="">
+                <img src="/img/cover1.png" class="blog-thumbnail" alt="">
             </div>
 
         </div>
     </div>
     <div class="contact-section">
+        <div class="contact-description">
+            <p>Write me a letter</p>
+        </div>
         <div class="envelope">
-            <img src="assets/img/stamp_compressed.webp" class="stamp" alt="">
+            <img src="/img/stamp_compressed.webp" class="stamp" alt="">
             <div class="input-section">
                 <textarea name="" id="" placeholder="Message"></textarea>
                 <div class="vertical-divider"></div>
@@ -128,7 +137,7 @@
                     <input type="text" placeholder="E-mail">
                 </div>
             </div>
-            <button class="send-seal">Send</button>
+            <button class="send-seal"></button>
         </div>
     </div>
 </template>

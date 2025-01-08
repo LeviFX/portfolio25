@@ -1,5 +1,6 @@
 <template>
     <div class="landing">
+        <characterRender />
     </div>
     <div class="projects-section">
         <div class="projects-description">

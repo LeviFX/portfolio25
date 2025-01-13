@@ -68,10 +68,6 @@ const onResize = () => {
 
 // Interpolate mouse coordinates on move
 const onMouseMove = (event) => {
-    const container = document.getElementById('three');
-    const width = container.offsetWidth;
-    const height = container.offsetHeight;
-
     mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
     mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 

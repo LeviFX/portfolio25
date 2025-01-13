@@ -48,6 +48,14 @@ body {
 .landing {
     height: 100vh;
     background-color: #f8f6ee;
+    #three {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 60%;
+        height: 60vh;
+        overflow: hidden;
+    }
     .content {
     }
 }

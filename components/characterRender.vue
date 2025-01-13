@@ -1,26 +1,33 @@
 <script setup lang="js">
 
+// TODO: Only import nescessary
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { onMounted } from 'vue';
 
-let scene, camera, renderer, loader, ambientLight;
+let scene, camera, renderer, loader, ambientLight, container;
+let target = new THREE.Vector3();
 let mouse = new THREE.Vector2();
-let targetRotation = new THREE.Euler();
-let character = null;
+let group = new THREE.Group();
 
+const interpolationSpeed = .03 // Higher = overall faster turn speed
+const negativeMultiplier = 3 // Higher = faster left turn speed
+
+// Initial loading
 const init = () => {
-    const container = document.getElementById('three');
+    container = document.getElementById('three');
     const width = container.offsetWidth;
     const height = container.offsetHeight;
 
     // Create Scene
     scene = new THREE.Scene();
 
+    // Add group
+    scene.add(group);
+
     // Create Camera
-    camera = new THREE.PerspectiveCamera(56, width / height, 0.01, 10);
-    camera.position.z = 2;
-    camera.position.y = 2;
+    camera = new THREE.PerspectiveCamera(52, width / height, 0.01, 10);
+    camera.position.set(0, 2, 2);
 
     // Create Renderer
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -28,17 +35,19 @@ const init = () => {
     container.appendChild(renderer.domElement);
 
     // Add light
-    ambientLight = new THREE.AmbientLight(0xcccccc, 1)
+    ambientLight = new THREE.AmbientLight(0xcccccc, 2)
     scene.add(ambientLight);
 
     // Add character
     loader = new GLTFLoader();
     loader.load('3d/levi.glb', function(gltf) {
-        character = gltf.scene;
-        scene.add(character);
+        group.add(gltf.scene)
     }, undefined, function(error) {
         console.error(error);
     });
+
+    // Tone character a bit to the right
+    group.position.set(0.15, 0, 0)
 
     // Handle window resize
     window.addEventListener('resize', onResize);
@@ -47,20 +56,8 @@ const init = () => {
     window.addEventListener('mousemove', onMouseMove);
 };
 
-const animate = () => {
-    requestAnimationFrame(animate);
-
-
-    if (character) {
-        character.rotation.x += (targetRotation.x - character.rotation.x) * 0.1; // Smooth transition for X rotation
-        character.rotation.y += (targetRotation.y - character.rotation.y) * 0.1; // Smooth transition for Y rotation
-    }
-    // Render Scene
-    renderer.render(scene, camera);
-};
-
+// Update camera on resize
 const onResize = () => {
-    const container = document.getElementById('three');
     const width = container.offsetWidth;
     const height = container.offsetHeight;
 
@@ -69,20 +66,35 @@ const onResize = () => {
     renderer.setSize(width, height);
 };
 
+// Interpolate mouse coordinates on move
 const onMouseMove = (event) => {
     const container = document.getElementById('three');
-  const width = container.offsetWidth;
-  const height = container.offsetHeight;
+    const width = container.offsetWidth;
+    const height = container.offsetHeight;
 
+    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+    mouse.y = - (event.clientY / window.innerHeight) * 2 + 1;
 
-  // Calculate normalized device coordinates (NDC) for mouse position
-  mouse.x = (event.clientX / width) * 2 - 1;
-  mouse.y = -(event.clientY / height) * 2 + 1;
-
-   // Update target rotation based on mouse position
-   targetRotation.x = mouse.y * Math.PI * -0.25; // Rotate around the X-axis (up/down)
-   targetRotation.y = mouse.x * Math.PI * 0.25; // Rotate around the Y-axis (left/right)
+    // Make negative number larger to compensate for cursor position
+    if (mouse.x < 0) {
+        mouse.x *= negativeMultiplier;
+    }
 }
+
+// Rerender frames
+const animate = () => {
+    requestAnimationFrame(animate);
+
+    // Interpolate target goal based on mouse position
+    target.x += (mouse.x - target.x) * interpolationSpeed * 1.2; // Horizontal movement
+    target.y += (mouse.y - target.y) * interpolationSpeed; // Vertical movement
+    target.z = camera.position.z;
+
+    group.lookAt(target);
+
+    // Render scene
+    renderer.render(scene, camera);
+};
 
 onMounted(() => {
     init();
@@ -93,6 +105,6 @@ onMounted(() => {
 
 <template>
   <div>
-    <div id="three" style="width: 50%; height: 55vh; overflow: hidden; position: absolute; bottom: 0; right: 0;"></div>
+    <div id="three"></div>
   </div>
 </template>

@@ -12,7 +12,7 @@
 
 // Abstracts
 @import 'abstracts/variables';
-
+@import 'abstracts/mixins';
 // Components
 @import 'components/navbar';
 @import 'components/footer';
@@ -55,6 +55,7 @@ body {
 
 .landing {
     height: 100vh;
+    width: 100%;
     background-color: #f8f6ee;
     #three {
         position: absolute;
@@ -63,6 +64,11 @@ body {
         width: 60%;
         height: 60vh;
         overflow: hidden;
+        @include breakpoint(s) {
+            width: 100%;
+            height: 50vh;
+            margin: 0 auto;
+        }
     }
     .content {
     }
@@ -86,6 +92,12 @@ body {
         grid-template-columns: repeat(3, minmax(25vh, 1fr));
         grid-template-rows: auto;
         grid-auto-flow: dense;
+        @include breakpoint(s) {
+            grid-template-columns: repeat(1, minmax(25vh, 1fr));
+        }
+        @include breakpoint(xs) {
+
+        }
         .card {
             min-width: 200px;
             min-height: 350px;

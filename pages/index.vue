@@ -1,6 +1,8 @@
 <template>
     <div class="landing">
         <characterRender />
+        <div class="blob-gradient"></div>
+        <div class="blob-gradient-2"></div>
     </div>
     <div class="projects-section">
         <div class="projects-description">

@@ -53,6 +53,47 @@ body {
     line-height: 1.2;
 }
 
+@keyframes pulse {
+    0% {
+        background-size: 100%;
+        opacity: .75;
+    }
+    45% {
+        background-size: 90%;
+        opacity: 1;
+    }
+    55% {
+        background-size: 92%;
+        opacity: 1;
+    }
+    to {
+        background-size: 70%;
+        opacity: .75;
+    }
+}
+@keyframes pulse2 {
+    0% {
+        background-size: 100%;
+        opacity: .75;
+        margin-left: 20px;
+    }
+    45% {
+        background-size: 90%;
+        opacity: 1;
+        margin-left: 0;
+    }
+    55% {
+        background-size: 92%;
+        opacity: 1;
+        margin-right: 20px;
+    }
+    to {
+        background-size: 70%;
+        opacity: .75;
+        margin-right: 0;
+    }
+}
+
 .landing {
     height: 100vh;
     width: 100%;
@@ -75,7 +116,29 @@ body {
             margin: 0 auto;
         }
     }
-    .content {
+    .blob-gradient {
+        width: 50%;
+        height: 180px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: radial-gradient(ellipse farthest-side at center bottom, hsla(0, 100%, 50%, 0.582) 0%, hsla(0, 0%, 0%, 0) 100%);
+        animation: pulse 6s ease-in-out infinite;
+    }
+    .blob-gradient-2 {
+        width: 75%;
+        height: 240px;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        margin-left: auto;
+        margin-right: auto;
+        background-image: radial-gradient(ellipse farthest-corner at center bottom, hsla(0, 100%, 50%, 0.507) 0%, hsla(0, 0%, 0%, 0) 70%);
+        animation: pulse2 6s ease-in-out infinite;
     }
 }
 

@@ -37,7 +37,7 @@ const init = () => {
     // Create Scene
     scene = new THREE.Scene();
 
-    // Add group
+    // Add group, lookAt() somehow only works when the model is in a group
     scene.add(group);
 
     // Create Camera

@@ -11,9 +11,22 @@ let mouse = new THREE.Vector2();
 let group = new THREE.Group();
 let touchStartX = 0;
 let touchStartY = 0;
+let touchLastX = 0;
+let swipeVelocity = 0;
 
 const interpolationSpeed = .03 // Higher = overall faster turn speed
 const negativeMultiplier = 3 // Higher = faster left turn speed
+
+// Check if client is on a mobile phone
+const isMobile = () => {
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    const mobileAgent = /android|iphone|ipad|ipod|blackberry|opera mini|iemobile|windows phone|mobile/i.test(userAgent);
+
+    const smallScreen = window.innerWidth <= 768;
+
+    // True if either is correct
+    return mobileAgent || smallScreen;
+}
 
 // Initial loading
 const init = () => {
@@ -48,8 +61,15 @@ const init = () => {
         console.error(error);
     });
 
-    // Tone character a bit to the right
-    group.position.set(0.15, 0, 0)
+    if (!isMobile()) {
+        // Desktop visual setting
+        group.position.set(0.15, 0, 0)
+        camera.position.set(0, 2, 2);
+    } else {
+        // Mobile visual setting
+        group.position.set(0, 0, 0)
+        camera.position.set(0, 2, 3.5);
+    }
 
     // Handle window resize
     window.addEventListener('resize', onResize);
@@ -66,6 +86,16 @@ const init = () => {
 const onResize = () => {
     const width = container.offsetWidth;
     const height = container.offsetHeight;
+
+    if (!isMobile()) {
+        // Desktop visual setting
+        group.position.set(0.15, 0, 0)
+        camera.position.set(0, 2, 2);
+    } else {
+        // Mobile visual setting
+        group.position.set(0, 0, 0)
+        camera.position.set(0, 2, 3.5);
+    }
 
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
@@ -87,26 +117,17 @@ const onTouchStart = (event) => {
     if (event.touches.length === 1) {
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
+        touchLastX = event.touches[0].clientX;
     }
 }
 
 const onTouchMove = (event) => {
     if (event.touches.length === 1) {
         const touchX = event.touches[0].clientX;
-        const touchY = event.touches[0].clientY;
 
-        const width = container.offsetWidth;
-        const height = container.offsetHeight;
-
-        const deltaX = (touchX - touchStartX) / width;
-        const deltaY = (touchY - touchStartY) / height;
-
-        mouse.x = deltaX * 2;
-        mouse.y = -deltaY * 2;
-
-        if (mouse.x < 0) {
-            mouse.x *= negativeMultiplier;
-        }
+        // Calculate swipe velocity based on the difference in touch positions
+        swipeVelocity = (touchX - touchLastX) * 0.006; // Adjust multiplier for sensitivity
+        touchLastX = touchX;
 
         event.preventDefault();
     }
@@ -121,7 +142,20 @@ const animate = () => {
     target.y += (mouse.y - target.y) * interpolationSpeed; // Vertical movement
     target.z = camera.position.z;
 
-    group.lookAt(target);
+    if (!isMobile()) {
+        // Desktop, respond to mouse movement
+        group.lookAt(target);
+    } else {
+        // Mobile, respond to swipes
+        group.rotation.y += 0.005;
+        group.rotation.y += swipeVelocity;
+        swipeVelocity *= 0.97
+
+        if (Math.abs(swipeVelocity) < 0.001) {
+            swipeVelocity = 0; //
+        }
+    }
+
     // Render scene
     renderer.render(scene, camera);
 };

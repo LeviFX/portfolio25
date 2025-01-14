@@ -9,6 +9,8 @@ let scene, camera, renderer, loader, ambientLight, container;
 let target = new THREE.Vector3();
 let mouse = new THREE.Vector2();
 let group = new THREE.Group();
+let touchStartX = 0;
+let touchStartY = 0;
 
 const interpolationSpeed = .03 // Higher = overall faster turn speed
 const negativeMultiplier = 3 // Higher = faster left turn speed
@@ -54,6 +56,10 @@ const init = () => {
 
     // Handle mouse movement
     window.addEventListener('mousemove', onMouseMove);
+
+    // Handle mobile touch
+    container.addEventListener('touchstart', onTouchStart, { passive: false });
+    container.addEventListener('touchmove', onTouchMove, { passive: false });
 };
 
 // Update camera on resize
@@ -77,6 +83,35 @@ const onMouseMove = (event) => {
     }
 }
 
+const onTouchStart = (event) => {
+    if (event.touches.length === 1) {
+        touchStartX = event.touches[0].clientX;
+        touchStartY = event.touches[0].clientY;
+    }
+}
+
+const onTouchMove = (event) => {
+    if (event.touches.length === 1) {
+        const touchX = event.touches[0].clientX;
+        const touchY = event.touches[0].clientY;
+
+        const width = container.offsetWidth;
+        const height = container.offsetHeight;
+
+        const deltaX = (touchX - touchStartX) / width;
+        const deltaY = (touchY - touchStartY) / height;
+
+        mouse.x = deltaX * 2;
+        mouse.y = -deltaY * 2;
+
+        if (mouse.x < 0) {
+            mouse.x *= negativeMultiplier;
+        }
+
+        event.preventDefault();
+    }
+}
+
 // Rerender frames
 const animate = () => {
     requestAnimationFrame(animate);
@@ -87,7 +122,6 @@ const animate = () => {
     target.z = camera.position.z;
 
     group.lookAt(target);
-
     // Render scene
     renderer.render(scene, camera);
 };

@@ -55,42 +55,42 @@ body {
 
 @keyframes pulse {
     0% {
-        background-size: 100%;
         opacity: .75;
+        transform: translateX(0px);
     }
     45% {
-        background-size: 90%;
         opacity: 1;
+        transform: translateX(12px);
     }
     55% {
-        background-size: 92%;
         opacity: 1;
+        transform: translateX(-2px);
     }
     to {
-        background-size: 70%;
         opacity: .75;
+        transform: translateX(0px);
     }
 }
 @keyframes pulse2 {
     0% {
-        background-size: 100%;
         opacity: .75;
-        margin-left: 20px;
+        transform: translateX(0px);
     }
     45% {
-        background-size: 90%;
         opacity: 1;
-        margin-left: 0;
+        transform: translateX(-20px);
     }
     55% {
-        background-size: 92%;
         opacity: 1;
-        margin-right: 20px;
+        transform: translateX(0px);
     }
-    to {
-        background-size: 70%;
+    77% {
         opacity: .75;
-        margin-right: 0;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: .75;
+        transform: translateX(0px);
     }
 }
 
@@ -117,28 +117,38 @@ body {
         }
     }
     .blob-gradient {
-        width: 50%;
-        height: 180px;
+        width: 45%;
+        height: 220px;
         bottom: 0;
         left: 0;
         right: 0;
         position: absolute;
         margin-left: auto;
         margin-right: auto;
-        background-image: radial-gradient(ellipse farthest-side at center bottom, hsla(0, 100%, 50%, 0.582) 0%, hsla(0, 0%, 0%, 0) 100%);
+        background-image: radial-gradient(ellipse farthest-side at center bottom, hsla(22, 94%, 49%, 0.377) 0%, hsla(0, 0%, 0%, 0) 100%);
         animation: pulse 6s ease-in-out infinite;
+        @include breakpoint(xs) {
+            width: 75%;
+            height: 120px;
+            background-image: radial-gradient(ellipse farthest-side at center bottom, hsla(22, 94%, 49%, 0.377) 20%, hsla(0, 0%, 0%, 0) 100%);
+        }
     }
     .blob-gradient-2 {
-        width: 75%;
-        height: 240px;
+        width: 70%;
+        height: 260px;
         bottom: 0;
         left: 0;
         right: 0;
         position: absolute;
         margin-left: auto;
         margin-right: auto;
-        background-image: radial-gradient(ellipse farthest-corner at center bottom, hsla(0, 100%, 50%, 0.507) 0%, hsla(0, 0%, 0%, 0) 70%);
+        background-image: radial-gradient(ellipse farthest-corner at center bottom, hsla(0, 96%, 34%, 0.288) 0%, hsla(0, 0%, 0%, 0) 70%);
         animation: pulse2 6s ease-in-out infinite;
+        @include breakpoint(xs) {
+            width: 100%;
+            height: 150px;
+            background-image: radial-gradient(ellipse farthest-corner at center bottom, hsla(0, 96%, 34%, 0.288) 20%, hsla(0, 0%, 0%, 0) 70%);
+        }
     }
 }
 
@@ -367,6 +377,46 @@ body {
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
                 margin-bottom: 0.5rem;
+            }
+        }
+    }
+}
+
+// Blog page
+
+.blogs-page {
+    min-height: 100vh;
+    .blogs-section {
+        max-width: $content-width;
+        margin-left: auto;
+        margin-right: auto;
+        .blogs-featured {
+            margin-bottom: 1rem;
+            .card {
+                width: 60%;
+                height: 30vh;
+                background-color: #5d99c065;
+                display: flex;
+                border-radius: 0.5rem;
+                .blog-thumbnail {
+                    object-fit: cover;
+                    width: 70%;
+                    height: 100%;
+                }
+            }
+        }
+        .blogs-other {
+            display: flex;
+            .card {
+                width: 25%;
+                height: 200px;
+                background-color: rgba(158, 216, 43, 0.349);
+                border-radius: 0.5rem;
+                .blog-thumbnail {
+                    object-fit: cover;
+                    width: 30%;
+                    height: 30%;
+                }
             }
         }
     }

@@ -1,8 +1,8 @@
 <template>
     <div class="landing">
-        <characterRender />
         <div class="blob-gradient"></div>
         <div class="blob-gradient-2"></div>
+        <characterRender />
     </div>
     <div class="projects-section">
         <div class="projects-description">
@@ -127,20 +127,10 @@
         </div>
     </div>
     <div class="contact-section">
-        <div class="contact-description">
-            <p>Write me a letter</p>
-        </div>
-        <div class="envelope">
-            <img src="/img/stamp_compressed.webp" class="stamp" alt="">
-            <div class="input-section">
-                <textarea name="" id="" placeholder="Message"></textarea>
-                <div class="vertical-divider"></div>
-                <div class="sender-wrapper">
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="E-mail">
-                </div>
+        <div class="contact-container">
+            <div class="contact-description">
+                <p>Write me a letter</p>
             </div>
-            <button class="send-seal"></button>
         </div>
     </div>
 </template>

@@ -1,5 +1,14 @@
 <template>
     <div class="landing">
+        <div class="greeting-text">
+            I am a (creative) <span class="greeting-developer">Developer</span>
+            passionate about <span class="greeting-3d">3D</span>
+            and <span class="greeting-design">Design
+                <span class="handles-top"></span>
+                <span class="handles-bottom"></span>
+                <span class="handles-middle"></span>
+            </span>
+        </div>
         <div class="blob-gradient"></div>
         <div class="blob-gradient-2"></div>
         <characterRender />

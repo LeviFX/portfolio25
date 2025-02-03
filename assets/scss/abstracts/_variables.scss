@@ -12,3 +12,44 @@ $color-gray-1000: #0e0d0c;
 $content-width: 1300px;
 
 $primary: red;
+
+@keyframes pulse {
+    0% {
+        opacity: .75;
+        transform: translateX(0px);
+    }
+    45% {
+        opacity: 1;
+        transform: translateX(12px);
+    }
+    55% {
+        opacity: 1;
+        transform: translateX(-2px);
+    }
+    to {
+        opacity: .75;
+        transform: translateX(0px);
+    }
+}
+@keyframes pulse2 {
+    0% {
+        opacity: .75;
+        transform: translateX(0px);
+    }
+    45% {
+        opacity: 1;
+        transform: translateX(-20px);
+    }
+    55% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+    77% {
+        opacity: .75;
+        transform: translateX(20px);
+    }
+    100% {
+        opacity: .75;
+        transform: translateX(0px);
+    }
+}

@@ -18,7 +18,6 @@ nav.navbar {
     ul {
         height: 100%;
         display: flex;
-  
         margin-left: 75px;
         margin-right: 75px;
         a {
@@ -74,11 +73,25 @@ nav.navbar {
             }
         }
     }
-    &.mobile {
+    &.open {
         transform: rotate(90deg);
         transform-origin: left center;
         width: 100vh;
         max-width: 100vh;
         margin-left: 200px;
+        .hamburger {
+            span {
+                background-color: #000;
+                &:nth-child(1) {
+                    transform: translateY(8px) rotate(45deg);
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                }
+                &:nth-child(3) {
+                    transform: translateY(-8px) rotate(-45deg);
+                }
+            }
+        }
     }
 }

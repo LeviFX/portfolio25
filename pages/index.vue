@@ -1,12 +1,54 @@
 <template>
     <div class="landing">
         <div class="greeting-text">
-            I am a (creative) <span class="greeting-developer">Developer</span>
-            passionate about <span class="greeting-3d">3D</span>
-            and <span class="greeting-design">Design
-                <span class="handles-top"></span>
-                <span class="handles-bottom"></span>
-                <span class="handles-middle"></span>
+            <span class="sentence developer">
+                I am a <span class="greeting-creative">
+                <div class="warp" aria-labelledby="warp-label">
+                <span id="warp-label" class="warp__placeholder">
+                    creative✨
+                </span>
+                <span aria-role="presentation">
+                    <span class="warp__0">
+                        c
+                    </span>
+                    <span class="warp__1">
+                        r
+                    </span>
+                    <span class="warp__2">
+                        e
+                    </span>
+                    <span class="warp__3">
+                        a
+                    </span>
+                    <span class="warp__4">
+                        t
+                    </span>
+                    <span class="warp__5">
+                        i
+                    </span>
+                    <span class="warp__6">
+                        v
+                    </span>
+                    <span class="warp__7">
+                        e
+                    </span>
+                    <span class="warp__8">
+                        ✨
+                    </span>
+                </span>
+                </div>
+                </span>
+                <span class="greeting-developer">Developer</span>
+            </span>
+            <span class="sentence">
+                passionate about <span class="greeting-3d">3D</span>
+            </span>
+            <span class="sentence">
+                and <span class="greeting-design">Design
+                    <span class="handles-top"></span>
+                    <span class="handles-bottom"></span>
+                    <span class="handles-middle"></span>
+                </span>
             </span>
         </div>
         <div class="blob-gradient"></div>

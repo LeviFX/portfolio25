@@ -1,11 +1,11 @@
 <template>
-    <nav class="navbar" :class="{'mobile': isOpen}">
+    <nav class="navbar" :class="{'open': isOpen}">
         <ul>
             <NuxtLink to="/" exact-active-class="active">Home</NuxtLink>
             <NuxtLink to="/projects" exact-active-class="active">Projects</NuxtLink>
             <NuxtLink to="/blog" exact-active-class="active">Blog</NuxtLink>
             <div @click="toggleHamburger" class="hamburger-container">
-                <div class="hamburger" :class="{'open': isOpen}">
+                <div class="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>

@@ -3,53 +3,60 @@
         <div class="greeting-text">
             <span class="sentence developer">
                 I am a <span class="greeting-creative">
-                <div class="warp" aria-labelledby="warp-label">
-                <span id="warp-label" class="warp__placeholder">
-                    creative✨
-                </span>
-                <span aria-role="presentation">
-                    <span class="warp__0">
-                        c
-                    </span>
-                    <span class="warp__1">
-                        r
-                    </span>
-                    <span class="warp__2">
-                        e
-                    </span>
-                    <span class="warp__3">
-                        a
-                    </span>
-                    <span class="warp__4">
-                        t
-                    </span>
-                    <span class="warp__5">
-                        i
-                    </span>
-                    <span class="warp__6">
-                        v
-                    </span>
-                    <span class="warp__7">
-                        e
-                    </span>
-                    <span class="warp__8">
-                        ✨
-                    </span>
-                </span>
-                </div>
+                    <div class="warped-text">
+                        <span class="warp">
+                            c
+                        </span>
+                        <span class="warp">
+                            r
+                        </span>
+                        <span class="warp">
+                            e
+                        </span>
+                        <span class="warp">
+                            a
+                        </span>
+                        <span class="warp">
+                            t
+                        </span>
+                        <span class="warp">
+                            i
+                        </span>
+                        <span class="warp">
+                            v
+                        </span>
+                        <span class="warp">
+                            e
+                        </span>
+                        <span class="warp">
+                            ✨
+                        </span>
+                    </div>
                 </span>
                 <span class="greeting-developer">Developer</span>
             </span>
-            <span class="sentence">
-                passionate about <span class="greeting-3d">3D</span>
+            <span class="sentence n3d">
+                <div class="expression">passionate</div> about <span class="greeting-3d">3D</span>
             </span>
-            <span class="sentence">
+            <br>
+            <span class="sentence design">
                 and <span class="greeting-design">Design
                     <span class="handles-top"></span>
                     <span class="handles-bottom"></span>
                     <span class="handles-middle"></span>
                 </span>
             </span>
+        </div>
+        <div class="greeting-text-mobile">
+            <div class="dev">
+                Dev<span class="dot">.</span>
+            </div>
+            <div class="n3d">
+                3D<span class="dot">.</span>
+            </div>
+            <div class="design">
+                Design<span class="dot">.</span>
+            </div>
         </div>
         <div class="blob-gradient"></div>
         <div class="blob-gradient-2"></div>

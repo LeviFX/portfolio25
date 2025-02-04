@@ -12,7 +12,9 @@ let group = new THREE.Group();
 let touchStartX = 0;
 let touchStartY = 0;
 let touchLastX = 0;
+let touchLastY = 0;
 let swipeVelocity = 0;
+let isHorizontalSwipe = false;
 
 const interpolationSpeed = .03 // Higher = overall faster turn speed
 const negativeMultiplier = 3 // Higher = faster left turn speed
@@ -78,7 +80,7 @@ const init = () => {
     window.addEventListener('mousemove', onMouseMove);
 
     // Handle mobile touch
-    container.addEventListener('touchstart', onTouchStart, { passive: false });
+    container.addEventListener('touchstart', onTouchStart, { passive: true });
     container.addEventListener('touchmove', onTouchMove, { passive: false });
 };
 
@@ -118,18 +120,34 @@ const onTouchStart = (event) => {
         touchStartX = event.touches[0].clientX;
         touchStartY = event.touches[0].clientY;
         touchLastX = event.touches[0].clientX;
+        touchLastY = event.touches[0].clientY;
+        isHorizontalSwipe = false;
     }
 }
 
 const onTouchMove = (event) => {
     if (event.touches.length === 1) {
         const touchX = event.touches[0].clientX;
+        const touchY = event.touches[0].clientY;
 
-        // Calculate swipe velocity based on the difference in touch positions
-        swipeVelocity = (touchX - touchLastX) * 0.006; // Adjust multiplier for sensitivity
-        touchLastX = touchX;
+        const deltaX = Math.abs(touchX - touchLastX);
+        const deltaY = Math.abs(touchY - touchLastY);
 
-        event.preventDefault();
+        // Check if swipe is vertical or horizontal, if vertical make sure to disable interaction with canvas
+        if (deltaX > deltaY) {
+            isHorizontalSwipe = true;
+            if (event.cancelable) {
+                event.preventDefault();
+            }
+        }
+
+        if (isHorizontalSwipe) {
+            // Calculate swipe velocity based on the difference in touch positions
+            swipeVelocity = (touchX - touchLastX) * 0.006; // Adjust multiplier for sensitivity
+            touchLastX = touchX;
+        }
+        
+        touchLastY = touchY;
     }
 }
 

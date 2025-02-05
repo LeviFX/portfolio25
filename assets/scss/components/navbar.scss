@@ -13,21 +13,36 @@ nav.navbar {
     box-shadow: 1px 1px 5px -3px rgba(0,0,0,0.19);
     z-index: 1;
     border-radius: 0.5rem;
-    mask: radial-gradient(circle 10px at 25px center, #ffffff 86%, #ffffff00), radial-gradient(circle 10px at calc(100% - 25px) center, transparent 86%, #000);
-    mask-composite: exclude;
-    ul {
+    overflow-y: clip;
+    transition: height 1s;
+    @include breakpoint(-xs) {
+        mask: radial-gradient(circle 10px at 25px center, #ffffff 86%, #ffffff00), radial-gradient(circle 10px at calc(100% - 25px) center, transparent 86%, #000);
+        mask-composite: exclude;
+    }
+    @include breakpoint(xs) {
+        margin-top: 0;
+        height: 55px;
+    }
+    .main-nav {
         height: 100%;
         display: flex;
         margin-left: 75px;
         margin-right: 75px;
-        a {
+        @include breakpoint(xs) {
+            height: 55px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+        .nav-link {
             display: flex;
             align-items: center;
             justify-content: center;
-            min-width: 10%;
+            min-width: 84px;
+            width: 10%;
             color: #5c5c5c;
             text-decoration: none;
-            &:hover {
+            @include breakpoint(xs) {
+                display: none;
             }
             &.active {
                 color: #000;
@@ -37,10 +52,14 @@ nav.navbar {
             }
         }
         .hamburger-container {
-            height: 100%;
+            display: none;
+            height: 59px;
             width: 65px;
             padding: 20px;
             margin-left: auto;
+            @include breakpoint(xs) {
+                display: block;
+            }
             .hamburger {
                 width: 100%;
                 height: 100%;
@@ -73,24 +92,52 @@ nav.navbar {
             }
         }
     }
+    .mobile-nav {
+        display: none;
+        flex-direction: column;
+        .nav-link {
+            color: #5c5c5c;
+            font-size: 24px;
+            padding: 2rem;
+            text-decoration: none;
+            &.active {
+                color: #000;
+                background-color: #00000006;
+                border-top: solid 1px #00000010;
+                border-bottom: solid 1px #00000010;
+            }
+        }
+    }
     &.open {
-        transform: rotate(90deg);
-        transform-origin: left center;
-        width: 100vh;
-        max-width: 100vh;
-        margin-left: 200px;
-        .hamburger {
-            span {
-                background-color: #000;
-                &:nth-child(1) {
-                    transform: translateY(8px) rotate(45deg);
+        height: 60vh;
+        transition: height 1s;
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+        @include breakpoint(-xs) {
+            height: 60px;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        .hamburger-container {
+            margin-right: auto;
+            .hamburger {
+                span {
+                    background-color: #000;
+                    &:nth-child(1) {
+                        transform: translateY(8px) rotate(45deg);
+                    }
+                    &:nth-child(2) {
+                        opacity: 0;
+                    }
+                    &:nth-child(3) {
+                        transform: translateY(-8px) rotate(-45deg);
+                    }
                 }
-                &:nth-child(2) {
-                    opacity: 0;
-                }
-                &:nth-child(3) {
-                    transform: translateY(-8px) rotate(-45deg);
-                }
+            }
+        }
+        .mobile-nav {
+            @include breakpoint(xs) {
+                display: flex;
             }
         }
     }

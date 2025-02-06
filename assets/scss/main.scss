@@ -352,9 +352,7 @@ body {
         @media screen and (max-width: 1075px) {
             display: flex;
             flex-direction: column;
-        }
-        @include breakpoint(xs) {
-
+            grid-gap: 1.5rem;
         }
         .card {
             min-width: 200px;
@@ -364,7 +362,7 @@ body {
             position: relative;
             @include breakpoint(s) {
                 min-width: unset;
-                min-height: 300px;
+                min-height: 390px;
             }
             &.large {
                 grid-row: span 2 / auto;
@@ -372,6 +370,12 @@ body {
                 .project-description {
                     font-size: 88px;
                     bottom: 20%;
+                    @media screen and (max-width: 1075px) {
+                        font-size: 38px;
+                    }
+                    @include breakpoint(xs) {
+                        font-size: 28px;
+                    }
                 }
             }
             &.vertical {
@@ -379,6 +383,10 @@ body {
                 .project-description {
                     bottom: unset;
                     top: 50%;
+                    @include breakpoint(s) {
+                        bottom: 20%;
+                        top: unset;
+                    }
                 }
             }
             &.horizontal {
@@ -386,6 +394,13 @@ body {
                 .project-description {
                     font-size: 68px;
                     bottom: 10%;
+                    @media screen and (max-width: 1075px) {
+                        font-size: 38px;
+                        bottom: 20%;
+                    }
+                    @include breakpoint(xs) {
+                        font-size: 28px;
+                    }
                 }
             }
             .category {
@@ -398,6 +413,7 @@ body {
                 padding-bottom: 0.25rem;
                 left: 10px;
                 top: 10px;
+                z-index: 1;
             }
             .project-description {
                 position: absolute;
@@ -406,11 +422,19 @@ body {
                 color: #fff;
                 font-size: 50px;
                 font-family: 'Noto Serif';
+                z-index: 1;
                 &.contrast {
                     background-color: rgb(45 45 45 / 38%);
                     backdrop-filter: blur(2px);
                     left: 0;
                     padding-left: 10px;
+                }
+                @media screen and (max-width: 1075px) {
+                    font-size: 38px;
+                    bottom: 20%;
+                }
+                @include breakpoint(xs) {
+                    font-size: 28px;
                 }
             }
             .project-thumbnail {
@@ -418,6 +442,7 @@ body {
                 height: 100%;
                 object-fit: cover;
                 border-radius: 0.5rem;
+                position: absolute;
             }
         }
     }
@@ -447,14 +472,26 @@ body {
         display: flex;
         justify-content: space-evenly;
         gap: 1rem;
+        @include breakpoint(s) {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: auto auto;
+        }
         .card {
             width: 33.33%;
             height: 290px;
             border: solid 1px #f0f0f053;
             border-radius: 0.5rem;
             background: conic-gradient(from 90deg at 1px 1px, rgb(255 255 255) 90deg, #dbdbdb7a 0) 0 0 / 12px 12px;
+            @include breakpoint(s) {
+                height: 350px;
+                width: 100%;
+            }
             .blog-content {
                 height: 30%;
+                @include breakpoint(xs) {
+                    height: 37%;
+                }
             }
             .blog-thumbnail {
                 width: 100%;
@@ -463,6 +500,9 @@ body {
                 border-bottom-right-radius: 0.5rem;
                 border-bottom-left-radius: 0.5rem;
                 object-fit: cover;
+                @include breakpoint(xs) {
+                    height: 63%;
+                }
             }
         }
     }
@@ -473,18 +513,47 @@ body {
     max-width: 100%;
     background-color: #f3efef;
     margin-top: 5rem;
+    background: conic-gradient(from 90deg at 1px 1px, rgb(248, 247, 245) 90deg, #c2c1c15e 0) 0 0 / 24px 24px;
+    padding-top: 2rem;
+    @media screen and (max-width: #{$content-width}) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
     .contact-container {
         max-width: $content-width;
         margin-left: auto;
         margin-right: auto;
-        min-height: 30vh;
+        min-height: 35vh;
         height: auto;
-        @include breakpoint(xs) {
-            max-width: 80%;
-        }
+        background-color: #fff;
+        box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.15);
+        border-top-left-radius: 1.5rem;
+        border-top-right-radius: 1.5rem;
+        position: relative;
+        padding: 2rem;
     }
     .contact-description {
 
+    }
+    .contact-form {
+        position: absolute;
+        height: 100%;
+        width: 60%;
+        border: dashed 2px #00000013;
+        display: flex;
+        flex-direction: column;
+        input {
+            width: 200px;
+            height: 35px;
+            margin-bottom: 1rem;
+            outline: none;
+            appearance: none;
+            border: none;
+            border-bottom: solid 1px;
+        }
+        textarea {
+            height: 80%;
+        }
     }
 }
 

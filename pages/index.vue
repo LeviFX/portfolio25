@@ -187,8 +187,12 @@
     <div class="contact-section">
         <div class="contact-container">
             <div class="contact-description">
-                <p>Write me a letter</p>
+                
             </div>
+            <form class="contact-form" action="">
+                <input type="text" name="e-mail" placeholder="e-mail">
+                <textarea name="message" id="message"></textarea>
+            </form>
         </div>
     </div>
 </template>

@@ -11,7 +11,7 @@ nav.navbar {
     position: fixed;
     border-bottom: 1px solid #f0f0f0;
     box-shadow: 1px 1px 5px -3px rgba(0,0,0,0.19);
-    z-index: 1;
+    z-index: 2;
     border-radius: 0.5rem;
     overflow-y: clip;
     transition: height 1s;
@@ -97,7 +97,7 @@ nav.navbar {
         flex-direction: column;
         .nav-link {
             color: #5c5c5c;
-            font-size: 24px;
+            font-size: 22px;
             padding: 2rem;
             text-decoration: none;
             &.active {

@@ -301,6 +301,7 @@ body {
         margin-right: auto;
         background-image: radial-gradient(ellipse farthest-side at center bottom, hsla(22, 94%, 49%, 0.56) 0%, hsla(0, 0%, 0%, 0) 100%);
         animation: pulse 6s ease-in-out infinite;
+        backdrop-filter: blur(3px);
         @include breakpoint(xs) {
            display: none;
         }
@@ -469,39 +470,63 @@ body {
         margin-bottom: 1rem;
     }
     .blog-grid {
+        height: 375px;
         display: flex;
-        justify-content: space-evenly;
         gap: 1rem;
-        @include breakpoint(s) {
-            display: grid;
-            grid-template-columns: 50% 50%;
-            grid-template-rows: auto auto;
+        @include breakpoint(xs) {
+            height: 275px;
         }
-        .card {
-            width: 33.33%;
-            height: 290px;
-            border: solid 1px #f0f0f053;
-            border-radius: 0.5rem;
-            background: conic-gradient(from 90deg at 1px 1px, rgb(255 255 255) 90deg, #dbdbdb7a 0) 0 0 / 12px 12px;
-            @include breakpoint(s) {
-                height: 350px;
-                width: 100%;
-            }
-            .blog-content {
-                height: 30%;
-                @include breakpoint(xs) {
-                    height: 37%;
+        .highlight {
+            width: 50%;
+            .card {
+                height: 100%;
+                display: flex;
+                flex-direction: column-reverse;
+                background: linear-gradient(0deg, rgb(228, 215, 215) 0%, rgb(255, 255, 255) 50%);
+                border: solid 1px #0000000a;
+                .blog-thumbnail {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                    overflow: hidden;
+                }
+                .blog-content {
+                    flex-basis: 30%;
+                    padding: 1rem;
+                    .blog-category {
+                        color: $primary;
+                    }
                 }
             }
-            .blog-thumbnail {
-                width: 100%;
-                height: 70%;
-                bottom: 0;
-                border-bottom-right-radius: 0.5rem;
-                border-bottom-left-radius: 0.5rem;
-                object-fit: cover;
-                @include breakpoint(xs) {
-                    height: 63%;
+        }
+        .featured {
+            width: 50%;
+            .card {
+                height: calc(50% - 0.5rem);
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                background: linear-gradient(42deg, rgb(228, 215, 215) 0%, rgb(255, 255, 255) 100%);
+                justify-content: flex-end;
+                border: solid 1px #0000000a;
+                .blog-thumbnail {
+                    height: 100%;
+                    object-fit: cover;
+                    width: 30%;
+                    overflow: hidden;
+                    flex-shrink: 0;
+                    @include breakpoint(xs) {
+                        width: 41%;
+                    }
+                }
+                .blog-content {
+                    padding: 1rem;
+                    .blog-category {
+                        color: $primary;
+                    }
+                }
+                &:first-of-type {
+                    margin-bottom: 1rem;
                 }
             }
         }
@@ -510,49 +535,105 @@ body {
 
 .contact-section {
     // background-color: #f9ddfd;
-    max-width: 100%;
-    background-color: #f3efef;
+    max-width: $content-width;
+    min-height: 30vh;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
     margin-top: 5rem;
-    background: conic-gradient(from 90deg at 1px 1px, rgb(248, 247, 245) 90deg, #c2c1c15e 0) 0 0 / 24px 24px;
-    padding-top: 2rem;
-    @media screen and (max-width: #{$content-width}) {
-        padding-left: 2rem;
-        padding-right: 2rem;
+    padding: 3rem;
+    .contact-description {
+        font-family: 'Meie Script';
+        font-size: 64px;
+        letter-spacing: 5px;
+        opacity: 0.5;
     }
-    .contact-container {
-        max-width: $content-width;
+    .envelope {
         margin-left: auto;
         margin-right: auto;
+        width: 80%;
         min-height: 35vh;
-        height: auto;
-        background-color: #fff;
-        box-shadow: 0px 0px 8px -2px rgba(0,0,0,0.15);
-        border-top-left-radius: 1.5rem;
-        border-top-right-radius: 1.5rem;
-        position: relative;
-        padding: 2rem;
-    }
-    .contact-description {
-
-    }
-    .contact-form {
-        position: absolute;
-        height: 100%;
-        width: 60%;
-        border: dashed 2px #00000013;
+        background-color: #ece7dc;
+        border: solid 15px;
+        border-image: 22 repeating-linear-gradient(
+        -45deg,
+        antiquewhite 0px,
+        antiquewhite 15px,
+        #3498db 15px, 
+        #3498db 30px,
+        antiquewhite 30px,
+        antiquewhite 45px,
+        #e74c3c 45px,
+        #e74c3c 60px
+        );
+        box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: column;
-        input {
-            width: 200px;
-            height: 35px;
-            margin-bottom: 1rem;
-            outline: none;
-            appearance: none;
-            border: none;
-            border-bottom: solid 1px;
+        justify-content: center;
+        position: relative;
+        .stamp {
+            position: absolute;
+            right: 21px;
+            top: 18px;
+            width: 79px;
+            transform: rotate(2deg);
         }
-        textarea {
-            height: 80%;
+        .send-seal {
+            border: 0;
+            background-color: transparent;
+            background-image: url(img/wax_send_smaller.webp);
+            background-size: cover;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 78px;
+            height: 77px;
+            color: #fff;
+            transition: 0.2s;
+            &:hover {
+                transform: scale(0.95);
+                transition: 0.2s;
+            }
+        }
+        .input-section {
+            display: flex;
+            justify-content: space-around;
+            textarea {
+                border: 0;
+                outline: none;
+                appearance: none;
+                background-color: transparent;
+                min-width: 50%;
+                min-height: 16vh;
+                background-image: repeating-linear-gradient(transparent 0px, transparent 27px, rgba(0, 0, 0, 0.2) 28px);
+                line-height: 2.1;
+                resize: none;
+                // font-family: 'Meie Script';
+                // font-size: 18px;
+            }
+            .vertical-divider {
+                width: 1px;
+                height: 16vh;
+                background-color: rgba(0, 0, 0, 0.1);;
+            }
+            .sender-wrapper {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+            }
+            input {
+                border: 0;
+                outline: none;
+                appearance: none;
+                background-color: transparent;
+                background-color: #ffffff2f;
+                border-bottom: solid 1px rgba(0, 0, 0, 0.1);
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                margin-bottom: 0.5rem;
+            }
         }
     }
 }

@@ -148,51 +148,60 @@
             <p>Lorem, ipsum dolor.</p>
         </div>
         <div class="blog-grid">
-            <div class="card">
+            <div class="highlight">
+                <div class="card">
                 <div class="blog-content">
-                    <h1 class="blog-title">
-                        Blog 1
-                    </h1>
+                    <div class="blog-category">
+                        Politiek
+                    </div>
                     <span class="blog-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam distinctio quidem rem, repudiandae ullam accusamus
+                        Waarom dit en waarom niet dat
+                    </span>
+                </div>
+                <img src="/img/cover1.png" class="blog-thumbnail" alt="">
+            </div>
+            </div>
+            <div class="featured">
+                <div class="card">
+                <div class="blog-content">
+                    <div class="blog-category">
+                        Filosofie
+                    </div>
+                    <span class="blog-description">
+                        De reden van kaasjes met koek
                     </span>
                 </div>
                 <img src="/img/cover1.png" class="blog-thumbnail" alt="">
             </div>
             <div class="card">
                 <div class="blog-content">
-                    <h1 class="blog-title">
-                        Blog 2
-                    </h1>
+                    <div class="blog-category">
+                        Dev
+                    </div>
                     <span class="blog-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam distinctio quidem rem, repudiandae ullam accusamus
+                        Taart bakken met CSS
                     </span>
                 </div>
                 <img src="/img/cover2.png" class="blog-thumbnail" alt="">
             </div>
-            <div class="card">
-                <div class="blog-content">
-                    <h1 class="blog-title">
-                        Blog 3
-                    </h1>
-                    <span class="blog-description">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam distinctio quidem rem, repudiandae ullam accusamus
-                    </span>
-                </div>
-                <img src="/img/cover1.png" class="blog-thumbnail" alt="">
             </div>
-
         </div>
     </div>
     <div class="contact-section">
-        <div class="contact-container">
-            <div class="contact-description">
-                
+        <div class="contact-description">
+            asdasdas
+        </div>
+        <div class="envelope">
+            <img src="/img/stamp_compressed.webp" class="stamp" alt="">
+            <div class="input-section">
+                <textarea name="" id="" placeholder="Message"></textarea>
+                <div class="vertical-divider"></div>
+                <div class="sender-wrapper">
+                    <input type="text" placeholder="Name">
+                    <input type="text" placeholder="E-mail">
+                </div>
+                <button class="send-seal"></button>
             </div>
-            <form class="contact-form" action="">
-                <input type="text" name="e-mail" placeholder="e-mail">
-                <textarea name="message" id="message"></textarea>
-            </form>
         </div>
     </div>
 </template>

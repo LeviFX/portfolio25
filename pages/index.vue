@@ -1,21 +1,14 @@
-
-    <script setup lang="ts">
-const { data: home } = await useAsyncData(() => queryCollection('content').path('/').first())
-
-useSeoMeta({
-  title: home.value?.title,
-  description: home.value?.description
-})
+<script setup lang="ts">
+const { data: posts } = await useAsyncData('blog', () => queryCollection('blog').all())
 </script>
+
 <template>
-
-
-
-  <ContentRenderer v-if="home" :value="home" />
-  <div v-else>Home not found</div>
-
-
     <div class="landing">
+        <ul>
+      <li v-for="post in posts" :key="post.id">
+        <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
+      </li>
+    </ul>
         <div class="greeting-text">
             <span class="sentence developer">
                 I am a <span class="greeting-creative">

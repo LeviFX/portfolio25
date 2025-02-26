@@ -1,8 +1,0 @@
----
-title: "Test Post"
-description: "This is a test blog post."
-date: "2025-02-15"
-image: "/images/sample.jpg"
----
-
-This is my test blog post content.

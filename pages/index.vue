@@ -1,14 +1,14 @@
-<script setup lang="ts">
-const { data: posts } = await useAsyncData('blog', () => queryCollection('blog').all())
+<script setup>
+    // Load data inside the content/blog dir
+    const { data: posts } = await useAsyncData('blog', () => queryCollection('blog')
+    .where('main', '=', true)
+    .order('order', 'ASC')
+    .limit(3)
+    .all())
 </script>
 
 <template>
     <div class="landing">
-        <ul>
-      <li v-for="post in posts" :key="post.id">
-        <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
-      </li>
-    </ul>
         <div class="greeting-text">
             <span class="sentence developer">
                 I am a <span class="greeting-creative">
@@ -157,6 +157,9 @@ const { data: posts } = await useAsyncData('blog', () => queryCollection('blog')
             <p>Lorem, ipsum dolor.</p>
         </div>
         <div class="blog-grid">
+            <li v-for="post in posts" :key="post.id">
+                <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
+            </li>
             <div class="highlight">
                 <div class="card">
                 <div class="blog-content">

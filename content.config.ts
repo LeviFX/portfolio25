@@ -7,11 +7,11 @@ export default defineContentConfig({
         type: 'page',
         schema: z.object({
             category: z.string(),
-            image: z.string(),
             order: z.number(),
-            visible: z.boolean(),
-            highlight: z.boolean(),
             main: z.boolean(),
+            highlight: z.boolean(),
+            visible: z.boolean(),
+            image: z.string(),
         })
     })
   }

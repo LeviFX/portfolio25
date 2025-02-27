@@ -1,6 +1,7 @@
 <script setup>
-    // Load data inside the content/blog dir
-    const { data: posts } = await useAsyncData('blog', () => queryCollection('blog')
+    // Load blogs from content/blog dir
+    const { data: blogs } = await useAsyncData('blog', () => queryCollection('blog')
+    .select('title', 'image', 'path', 'highlight', 'category')
     .where('main', '=', true)
     .order('order', 'ASC')
     .limit(3)
@@ -157,45 +158,35 @@
             <p>Lorem, ipsum dolor.</p>
         </div>
         <div class="blog-grid">
-            <li v-for="post in posts" :key="post.id">
-                <NuxtLink :to="post.path">{{ post.title }}</NuxtLink>
-            </li>
             <div class="highlight">
-                <div class="card">
-                <div class="blog-content">
-                    <div class="blog-category">
-                        Politiek
+                <div v-if="blogs && blogs.length">
+                    <NuxtLink :to="blog.path" v-for="blog in blogs.filter(blog => blog.highlight)" :key="'highlight-' + blog.id" class="card">
+                    <div class="blog-content">
+                        <div class="blog-category">
+                            {{ blog.category }}
+                        </div>
+                        <span class="blog-description">
+                            {{ blog.title }}
+                        </span>
                     </div>
-                    <span class="blog-description">
-                        Waarom dit en waarom niet dat
-                    </span>
+                    <img :src="blog.image" class="blog-thumbnail" alt="">
+                    </NuxtLink>
                 </div>
-                <img src="/img/cover1.png" class="blog-thumbnail" alt="">
-            </div>
             </div>
             <div class="featured">
-                <div class="card">
-                <div class="blog-content">
-                    <div class="blog-category">
-                        Filosofie
+                <div v-if="blogs && blogs.length">
+                    <NuxtLink :to="blog.path" v-for="blog in blogs.filter(blog => !blog.highlight)" :key="blog.id" class="card">
+                    <div class="blog-content">
+                        <div class="blog-category">
+                            {{ blog.category }}
+                        </div>
+                        <span class="blog-description">
+                            {{ blog.title }}
+                        </span>
                     </div>
-                    <span class="blog-description">
-                        De reden van kaasjes met koek
-                    </span>
+                    <img :src="blog.image" class="blog-thumbnail" alt="">
+                </NuxtLink>
                 </div>
-                <img src="/img/cover1.png" class="blog-thumbnail" alt="">
-            </div>
-            <div class="card">
-                <div class="blog-content">
-                    <div class="blog-category">
-                        Dev
-                    </div>
-                    <span class="blog-description">
-                        Taart bakken met CSS
-                    </span>
-                </div>
-                <img src="/img/cover2.png" class="blog-thumbnail" alt="">
-            </div>
             </div>
         </div>
     </div>

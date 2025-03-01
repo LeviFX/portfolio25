@@ -1,14 +1,12 @@
 !TODO:
 
+- Dummy blog cards first of type margin bottom
 - Seo management, html headers
-- Laravel backend api implementation
-- Mobile navigation bar
 - Footer
 - Contact section
 - About?
 - Landing page
 - Hover effect on projects revealing small webm/mp4 ?
-- Empty texts when there are no projects/blogs
 
 # Nuxt Minimal Starter
 

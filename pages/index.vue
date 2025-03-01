@@ -159,7 +159,7 @@
         </div>
         <div class="blog-grid">
             <div class="highlight">
-                <div v-if="blogs && blogs.length">
+                <div v-if="blogs && blogs.length && blogs.some(blog => blog.highlight)">
                     <NuxtLink :to="blog.path" v-for="blog in blogs.filter(blog => blog.highlight)" :key="'highlight-' + blog.id" class="card">
                     <div class="blog-content">
                         <div class="blog-category">
@@ -171,6 +171,15 @@
                     </div>
                     <img :src="blog.image" class="blog-thumbnail" alt="">
                     </NuxtLink>
+                </div>
+                <div v-else class="card">
+                    <div class="blog-content">
+                        <div class="blog-category"></div>
+                        <span class="blog-description">
+                        No blog yet..
+                        </span>
+                    </div>
+                    <img src="/img/cover1.png" alt="">
                 </div>
             </div>
             <div class="featured">

@@ -172,14 +172,14 @@
                     <img :src="blog.image" class="blog-thumbnail" alt="">
                     </NuxtLink>
                 </div>
-                <div v-else class="card">
+                <div v-else class="card dummy">
                     <div class="blog-content">
                         <div class="blog-category"></div>
                         <span class="blog-description">
                         No blog yet..
                         </span>
                     </div>
-                    <img src="/img/cover1.png" alt="">
+                    <img src="/img/notfound.png" class="blog-thumbnail" alt="">
                 </div>
             </div>
             <div class="featured">
@@ -193,8 +193,17 @@
                             {{ blog.title }}
                         </span>
                     </div>
-                    <img :src="blog.image" class="blog-thumbnail" alt="">
-                </NuxtLink>
+                        <img :src="blog.image" class="blog-thumbnail" alt="">
+                    </NuxtLink>
+                </div>
+                <div v-for="n in (2 - blogs.filter(blog => !blog.highlight).length)" :key="'dummy-' + n" class="card dummy">
+                    <div class="blog-content">
+                        <div class="blog-category"></div>
+                        <span class="blog-description">
+                        No blog yet..
+                        </span>
+                    </div>
+                    <img src="/img/notfound.png" class="blog-thumbnail" alt="">
                 </div>
             </div>
         </div>

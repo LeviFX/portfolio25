@@ -5,7 +5,7 @@ description: Waarom koekjes met kaas?
 order: 3
 main: true
 highlight: false
-visible: true
+visible: false
 date: 28-2-2025
 image: /img/cover1.png
 ---

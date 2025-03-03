@@ -13,6 +13,20 @@ export default defineContentConfig({
             visible: z.boolean(),
             image: z.string(),
         })
+    }),
+    project: defineCollection({
+      source: 'project/*.md',
+        type: 'data',
+        schema: z.object({
+            title: z.string(),
+            category: z.string(),
+            link: z.string(),
+            order: z.number(),
+            main: z.boolean(),
+            size: z.string(),
+            contrast: z.boolean(),
+            image: z.string(),
+        })
     })
   }
 })

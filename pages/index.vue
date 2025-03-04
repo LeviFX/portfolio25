@@ -6,6 +6,13 @@
     .order('order', 'ASC')
     .limit(3)
     .all())
+
+    // Load projects from content/project dir
+    const { data: projects } = await useAsyncData('project', () => queryCollection('project')
+    .select('title', 'image', 'link', 'category', 'contrast', 'size')
+    .where('main', '=', true)
+    .order('order', 'ASC')
+    .all())
 </script>
 
 <template>
@@ -78,7 +85,16 @@
             <p>A wide range of</p>
         </div>
         <div class="bento-grid">
-            <div class="card large">
+            <NuxtLink :to="project.link" v-for="project in projects" :key="project.id" target="__blank" class="card" :class="[project.size, { contrast: project.contrast }]">
+                <div class="category">
+                    {{ project.category }}
+                </div>
+                <div class="project-description">
+                    {{ project.title }}
+                </div>
+                <img :src="project.image" class="project-thumbnail" alt="">
+            </NuxtLink>
+            <!-- <div class="card large">
                 <div class="category">
                     #3d
                 </div>
@@ -149,7 +165,7 @@
                     Lorem ipsum dolor sit.
                 </div>
                 <img src="/img/chess.webp" class="project-thumbnail" alt="">
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="blogs-section">

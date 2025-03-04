@@ -3,7 +3,7 @@ title: De reden van kaasjes met koek
 category: Filosofie
 description: Waarom koekjes met kaas?
 order: 3
-main: true
+main: false
 highlight: false
 visible: false
 date: 28-2-2025

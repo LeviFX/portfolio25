@@ -13,6 +13,7 @@
     .where('main', '=', true)
     .order('order', 'ASC')
     .all())
+
 </script>
 
 <template>
@@ -77,6 +78,7 @@
         </div>
         <div class="blob-gradient"></div>
         <div class="blob-gradient-2"></div>
+        <img class="swipeme" src="/img/swipe.webp" alt="">
         <characterRender />
     </div>
     <div class="projects-section">

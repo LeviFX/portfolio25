@@ -54,7 +54,7 @@
                 <span class="greeting-developer">Developer</span>
             </span>
             <span class="sentence n3d">
-                <div class="expression">passionate</div> <span class="index">about</span> <span class="greeting-3d">3D</span>
+                <div class="expression"><img src="/img/passionate.png" alt="passionate"></div> <span class="index">about</span> <span class="greeting-3d">3D</span>
             </span>
             <br>
             <span class="sentence design">
@@ -228,7 +228,7 @@
     </div>
     <div class="contact-section">
         <div class="contact-description">
-            asdasdas
+            <h1>Message me</h1>
         </div>
         <div class="envelope">
             <img src="/img/stamp_compressed.webp" class="stamp" alt="">
@@ -239,7 +239,6 @@
                     <input type="text" placeholder="Name">
                     <input type="text" placeholder="E-mail">
                 </div>
-                <button class="send-seal"></button>
             </div>
         </div>
     </div>

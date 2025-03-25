@@ -73,25 +73,12 @@ body {
             display: none;
         }
         .expression {
-            text-shadow: 1px 1px #7c7c7c;
             display: inline-block;
-            border-radius: 0.5rem;
-            position: relative;
-            z-index: 1;
-            &::after {
-                content: "";
-                z-index: -1;
-                position: absolute;
-                width: 150%;
-                height: 150%;
-                top: -24px;
-                left: -33px;
-                background-image: url(img/paint.webp);
-                background-size: 100%;
-                background-position: center;
-                background-repeat: no-repeat;
-                transform: rotateZ(-4deg);
-                opacity: 0.9;
+            img {
+                width: 350px;
+                transform: translateY(10px);
+                transform: rotateZ(-3deg);
+                pointer-events: none;
             }
         }
         .index {
@@ -540,6 +527,7 @@ body {
                 }
                 &.dummy {
                     border: dashed 1px #0000002f;
+                    opacity: 0.5;
                 }
                 .blog-thumbnail {
                     height: 100%;
@@ -580,6 +568,7 @@ body {
                 }
                 &.dummy {
                     border: dashed 1px #0000002f;
+                    opacity: 0.5;
                 }
                 .blog-thumbnail {
                     height: 100%;
@@ -616,15 +605,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 5rem;
-    padding: 3rem;
     .contact-description {
-        font-family: 'Meie Script';
-        font-size: 64px;
-        letter-spacing: 5px;
-        opacity: 0.5;
+        margin-bottom: 1rem;
     }
     .envelope {
-        margin-left: auto;
         margin-right: auto;
         width: 80%;
         min-height: 35vh;
@@ -652,23 +636,6 @@ body {
             top: 18px;
             width: 79px;
             transform: rotate(2deg);
-        }
-        .send-seal {
-            border: 0;
-            background-color: transparent;
-            background-image: url(img/wax_send_smaller.webp);
-            background-size: cover;
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            width: 78px;
-            height: 77px;
-            color: #fff;
-            transition: 0.2s;
-            &:hover {
-                transform: scale(0.95);
-                transition: 0.2s;
-            }
         }
         .input-section {
             display: flex;

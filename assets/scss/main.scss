@@ -73,9 +73,30 @@ body {
             display: none;
         }
         .expression {
-            background-color: #fffc35;
+            text-shadow: 1px 1px #7c7c7c;
             display: inline-block;
             border-radius: 0.5rem;
+            position: relative;
+            z-index: 1;
+            &::after {
+                content: "";
+                z-index: -1;
+                position: absolute;
+                width: 150%;
+                height: 150%;
+                top: -24px;
+                left: -33px;
+                background-image: url(img/paint.webp);
+                background-size: 100%;
+                background-position: center;
+                background-repeat: no-repeat;
+                transform: rotateZ(-4deg);
+                opacity: 0.9;
+            }
+        }
+        .index {
+            z-index: 1;
+            position: relative
         }
         .sentence {
             &.developer {
@@ -374,9 +395,16 @@ body {
             border-radius: 0.5rem;
             position: relative;
             color: inherit;
+            overflow: hidden;
             @include breakpoint(s) {
                 min-width: unset;
                 min-height: 390px;
+            }
+            &:hover {
+                .project-thumbnail {
+                    transform: scale(1.04);
+                    transition: 0.35s ease;
+                }
             }
             &.large {
                 grid-row: span 2 / auto;
@@ -436,6 +464,7 @@ body {
                 left: 10px;
                 top: 10px;
                 z-index: 1;
+                font-family: 'Noto Serif';
             }
             .project-description {
                 position: absolute;
@@ -459,6 +488,7 @@ body {
                 object-fit: cover;
                 border-radius: 0.5rem;
                 position: absolute;
+                transition: 0.5s;
             }
         }
     }
@@ -501,6 +531,13 @@ body {
                 border: solid 1px #0000000a;
                 text-decoration: none;
                 color: inherit;
+                &:not(.dummy) {
+                    transition: 0.2s;
+                    &:hover {
+                        transform: scale(1.01);
+                        transition: 0.2s;
+                    }
+                }
                 &.dummy {
                     border: dashed 1px #0000002f;
                 }
@@ -534,6 +571,13 @@ body {
                 border: solid 1px #0000000a;
                 text-decoration: none;
                 color: inherit;
+                &:not(.dummy) {
+                    transition: 0.2s;
+                    &:hover {
+                        transform: scale(1.01);
+                        transition: 0.2s;
+                    }
+                }
                 &.dummy {
                     border: dashed 1px #0000002f;
                 }

@@ -54,7 +54,7 @@
                 <span class="greeting-developer">Developer</span>
             </span>
             <span class="sentence n3d">
-                <div class="expression">passionate</div> about <span class="greeting-3d">3D</span>
+                <div class="expression">passionate</div> <span class="index">about</span> <span class="greeting-3d">3D</span>
             </span>
             <br>
             <span class="sentence design">

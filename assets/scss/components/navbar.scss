@@ -18,8 +18,8 @@ nav.navbar {
     @include breakpoint(-xs) {
         mask: radial-gradient(circle 10px at 25px center, #ffffff 86%, #ffffff00), radial-gradient(circle 10px at calc(100% - 25px) center, transparent 86%, #000);
         mask-composite: exclude;
-        box-shadow: inset -2px -2px 12px -1px rgba(0,0,0,0.12);
-        background: linear-gradient(135deg, #f5ba71, #ce862d);
+        box-shadow: inset -2px -2px 12px -1px rgba(0,0,0,0.07);
+        background: linear-gradient(135deg, #ffffff, #f4f4f4);
         border-bottom: 1px solid #9f592847;
     }
     @include breakpoint(xs) {

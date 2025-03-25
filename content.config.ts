@@ -12,6 +12,7 @@ export default defineContentConfig({
             highlight: z.boolean(),
             visible: z.boolean(),
             image: z.string(),
+            lang: z.string(),
         })
     }),
     project: defineCollection({

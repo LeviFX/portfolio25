@@ -1,12 +1,36 @@
 !TODO:
 
-- Dummy blog cards first of type margin bottom
+- Error 404 page
 - Seo management, html headers
 - Footer
 - Contact section
-- About?
-- Landing page
-- Hover effect on projects revealing small webm/mp4 ?
+- About
+
+## Projects
+Available metadata example:
+
+-title: string
+-category: string
+-link: string (link to third-party site)
+-order: integer (numerical order to select)
+-main: boolean (true = show on index page, false = only on /projects overview)
+-size: string (empty = normal, vertical = high, horizontal = wide, large = big)
+-contrast: boolean (true = support for better readability if the project image has the same colour as the project description)
+-image: string (path to image like "/img/image.webp")
+
+## Blogs
+Available metadata example:
+
+-title: string
+-category: string
+-description: string
+-order: integer (numerical order to select)
+-main: boolean (true = show on index page, false = only on /blog overview)
+-highlight: boolean (true = make blog card bigger to highlight)
+-visible: boolean (false = invisible)
+-date: string
+-image: string (path to image like "/img/image.webp")
+-lang: string (language like NL/EN)
 
 # Nuxt Minimal Starter
 

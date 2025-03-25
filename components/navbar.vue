@@ -4,6 +4,7 @@
             <NuxtLink to="/" class="nav-link" exact-active-class="active">Home</NuxtLink>
             <NuxtLink to="/projects" class="nav-link" exact-active-class="active">Projects</NuxtLink>
             <NuxtLink to="/blog" class="nav-link" exact-active-class="active">Blog</NuxtLink>
+            <NuxtLink to="/about" class="nav-link" exact-active-class="active">About</NuxtLink>
             <div @click="toggleHamburger" class="hamburger-container">
                 <div class="hamburger">
                     <span></span>
@@ -16,6 +17,7 @@
             <NuxtLink to="/" class="nav-link" exact-active-class="active">Home</NuxtLink>
             <NuxtLink to="/projects" class="nav-link" exact-active-class="active">Projects</NuxtLink>
             <NuxtLink to="/blog" class="nav-link" exact-active-class="active">Blog</NuxtLink>
+            <NuxtLink to="/about" class="nav-link" exact-active-class="active">About</NuxtLink>
         </ul>
     </nav>
 </template>

@@ -8,6 +8,7 @@ highlight: false
 visible: false
 date: 28-2-2025
 image: /img/cover1.png
+lang: NL
 ---
 
 Dit vraagt men zich al jaren af

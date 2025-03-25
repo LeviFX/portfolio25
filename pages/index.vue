@@ -1,7 +1,7 @@
 <script setup>
     // Load blogs from content/blog dir
     const { data: blogs } = await useAsyncData('blog', () => queryCollection('blog')
-    .select('title', 'image', 'path', 'highlight', 'category')
+    .select('title', 'image', 'path', 'highlight', 'category', 'lang')
     .where('main', '=', true)
     .order('order', 'ASC')
     .limit(3)
@@ -96,78 +96,10 @@
                 </div>
                 <img :src="project.image" class="project-thumbnail" alt="">
             </NuxtLink>
-            <!-- <div class="card large">
-                <div class="category">
-                    #3d
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/animationkeyboard.webp" class="project-thumbnail" alt="">
+            <div class="view-more">
+                Want to see more?
+                <NuxtLink to="/projects" class="btn"><button>&#8594;</button></NuxtLink>
             </div>
-            <div class="card">
-                <div class="category">
-                    #dev
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/astronaut.webp" class="project-thumbnail" alt="">
-            </div>
-            <div class="card">
-                <div class="category">
-                    #design
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/cathedral.webp" class="project-thumbnail" alt="">
-            </div>
-            <div class="card vertical">
-                <div class="category">
-                    #3d #dev
-                </div>
-                <div class="project-description contrast">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/remia_small.webp" class="project-thumbnail" alt="">
-            </div>
-            <div class="card">
-                <div class="category">
-                    #dev
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/sgp3d.webp" class="project-thumbnail" alt="">
-            </div>
-            <div class="card">
-                <div class="category">
-                    #motion
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/remia_small.webp" class="project-thumbnail" alt="">
-            </div>
-            <div class="card horizontal">
-                <div class="category">
-                    #test
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/twirl.webp" class="project-thumbnail" alt="">
-            </div>
-            <div class="card">
-                <div class="category">
-                    #dev
-                </div>
-                <div class="project-description">
-                    Lorem ipsum dolor sit.
-                </div>
-                <img src="/img/chess.webp" class="project-thumbnail" alt="">
-            </div> -->
         </div>
     </div>
     <div class="blogs-section">
@@ -180,6 +112,7 @@
                 <div v-if="blogs && blogs.length && blogs.some(blog => blog.highlight)">
                     <NuxtLink :to="blog.path" v-for="blog in blogs.filter(blog => blog.highlight)" :key="'highlight-' + blog.id" class="card">
                     <div class="blog-content">
+                        <span class="language">{{ blog.lang }}</span>
                         <div class="blog-category">
                             {{ blog.category }}
                         </div>
@@ -197,13 +130,14 @@
                         No blog yet..
                         </span>
                     </div>
-                    <img src="/img/notfound.png" class="blog-thumbnail" alt="">
+                    <img src="/img/notfound.webp" class="blog-thumbnail" alt="">
                 </div>
             </div>
             <div class="featured">
                 <div v-if="blogs && blogs.length">
                     <NuxtLink :to="blog.path" v-for="blog in blogs.filter(blog => !blog.highlight)" :key="blog.id" class="card">
                     <div class="blog-content">
+                        <span class="language">{{ blog.lang }}</span>
                         <div class="blog-category">
                             {{ blog.category }}
                         </div>
@@ -221,7 +155,7 @@
                         No blog yet..
                         </span>
                     </div>
-                    <img src="/img/notfound.png" class="blog-thumbnail" alt="">
+                    <img src="/img/notfound.webp" class="blog-thumbnail" alt="">
                 </div>
             </div>
         </div>

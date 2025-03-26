@@ -937,6 +937,31 @@ body.about {
         background-color: #f8f6ee;
         background-size: 65px 65px;
         background-image: radial-gradient(circle, #0e0e0e50 1px, rgba(0, 0, 0, 0) 1px);
+        .about-content {
+            position: absolute;
+            left: 20%;
+            top: 25%;
+            max-width: 580px;
+            font-size: 32px;
+            @media screen and (max-width: #{$content-width}) {
+                left: 5%;
+                font-size: 30px;
+                max-width: 450px;
+            }
+            @include breakpoint(xs) {
+                width: 80%;
+                left: 0;
+                top: 45%;
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                text-align: justify;
+                text-wrap: pretty;
+                font-size: 26px;
+            }
+        }
+        .about-content {
+        }
         #three {
             position: absolute;
             bottom: 0;

@@ -15,7 +15,6 @@ let swipeVelocity = 0;
 let isHorizontalSwipe = false;
 
 const interpolationSpeed = .03 // Higher = overall faster turn speed
-const negativeMultiplier = 3 // Higher = faster left turn speed
 
 // Check if client is on a mobile phone
 const isMobile = () => {

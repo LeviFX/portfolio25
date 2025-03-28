@@ -1,5 +1,11 @@
 footer.site-footer {
     background-color: #f8f6ee;
-    height: 120px;
+    min-height: 120px;
     width: 100%;
+    .footer-wrapper {
+        max-width: $content-width;
+        margin-left: auto;
+        margin-right: auto;
+        height: 100%;
+    }
 }

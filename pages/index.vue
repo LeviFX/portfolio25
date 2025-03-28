@@ -1,4 +1,7 @@
 <script setup>
+
+    import { ref } from 'vue'
+
     // Load blogs from content/blog dir
     const { data: blogs } = await useAsyncData('blog', () => queryCollection('blog')
     .select('title', 'image', 'path', 'highlight', 'category', 'lang')
@@ -14,6 +17,64 @@
     .order('order', 'ASC')
     .all())
 
+    const message = ref('')
+    const name = ref('')
+    const email = ref('')
+    const successMessage = ref('')
+    const errorMessage = ref('')
+    const loading = ref(false)
+
+    const validateForm = () => {
+        if (!name.value || !email.value || !message.value) {
+            errorMessage.value = 'All fields are required'
+            return false
+        }
+        return true
+    }
+
+    const submitForm = async () => {
+        // Clear messages
+        successMessage.value = ''
+        errorMessage.value = ''
+
+        if (!validateForm()) return
+
+        loading.value = true
+        try {
+            const res = await fetch('/api/mail', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: name.value,
+                    email: email.value,
+                    message: message.value
+                })
+            })
+
+            // Manually parse JSON
+            const data = await res.json()
+
+            if (data?.success) {
+                successMessage.value = data.message
+                // Clear the form
+                name.value = ''
+                email.value = ''
+                message.value = ''
+                console.log('yep');
+            } else {
+                console.log("nope");
+                errorMessage.value = data?.error || 'Something went wrong'
+            }
+        } catch (err) {
+            errorMessage.value = 'Error sending message. Please try again.'
+            console.error(err)
+            console.log('nope2')
+        } finally {
+            loading.value = false
+        }
+    }
 </script>
 
 <template>
@@ -84,7 +145,6 @@
     <div class="projects-section">
         <div class="projects-description">
             <h1>What I've been working on</h1>
-            <p>A wide range of</p>
         </div>
         <div class="bento-grid">
             <NuxtLink :to="project.link" v-for="project in projects" :key="project.id" target="__blank" class="card" :class="[project.size, { contrast: project.contrast }]">
@@ -105,7 +165,6 @@
     <div class="blogs-section">
         <div class="blogs-description">
             <h1>Articles</h1>
-            <p>Lorem, ipsum dolor.</p>
         </div>
         <div class="blog-grid">
             <div class="highlight">
@@ -164,16 +223,19 @@
         <div class="contact-description">
             <h1>Message me</h1>
         </div>
-        <div class="envelope">
+        <form @submit.prevent="submitForm" class="envelope">
             <img src="/img/stamp_compressed.webp" class="stamp" alt="">
             <div class="input-section">
-                <textarea name="" id="" placeholder="Message"></textarea>
+                <textarea v-model="message" name="message" placeholder="Message"></textarea>
                 <div class="vertical-divider"></div>
                 <div class="sender-wrapper">
-                    <input type="text" placeholder="Name">
-                    <input type="text" placeholder="E-mail">
+                    <input v-model="name" type="text" placeholder="Name">
+                    <input v-model="email" type="text" placeholder="E-mail">
+                    <button type="submit" :disabled="loading">{{ loading? 'Sending' : 'Send' }}</button>
+                    <p v-if="successMessage" class="succes message">{{ successMessage }}</p>
+                    <p v-if="errorMessage" class="error message">{{ errorMessage }}</p>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 </template>

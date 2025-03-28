@@ -1,5 +1,7 @@
 <template>
     <footer class="site-footer">
-        test
+        <div class="footer-wrapper">
+            test
+        </div>
     </footer>
 </template>

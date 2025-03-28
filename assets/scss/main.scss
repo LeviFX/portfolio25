@@ -481,13 +481,10 @@ body {
         }
         .view-more {
             position: absolute;
-            right: 0;
+            left: 0;
             bottom: -4rem;
             font-size: 1.2rem;
             max-width: 200px;
-            @include breakpoint(xs) {
-                left: 0;
-            }
             .btn {
                 button {
                     width: 60%;
@@ -525,7 +522,7 @@ body {
         padding-right: 0;
     }
     .blogs-description {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .blog-grid {
         height: 375px;
@@ -658,8 +655,9 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 7.5rem;
+    margin-bottom: 7.5rem;
     .contact-description {
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .envelope {
         margin-right: auto;

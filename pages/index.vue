@@ -17,6 +17,7 @@
     .order('order', 'ASC')
     .all())
 
+    // Retrieve contact form data
     const message = ref('')
     const name = ref('')
     const email = ref('')
@@ -29,7 +30,7 @@
             errorMessage.value = 'All fields are required'
             return false
         }
-        return true
+        return true 
     }
 
     const submitForm = async () => {
@@ -40,6 +41,7 @@
         if (!validateForm()) return
 
         loading.value = true
+
         try {
             const res = await fetch('/api/mail', {
                 method: 'POST',
@@ -47,9 +49,9 @@
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
+                    message: message.value,
                     name: name.value,
-                    email: email.value,
-                    message: message.value
+                    email: email.value
                 })
             })
 
@@ -59,18 +61,15 @@
             if (data?.success) {
                 successMessage.value = data.message
                 // Clear the form
+                message.value = ''
                 name.value = ''
                 email.value = ''
-                message.value = ''
-                console.log('yep');
             } else {
-                console.log("nope");
                 errorMessage.value = data?.error || 'Something went wrong'
             }
         } catch (err) {
             errorMessage.value = 'Error sending message. Please try again.'
             console.error(err)
-            console.log('nope2')
         } finally {
             loading.value = false
         }

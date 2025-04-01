@@ -350,7 +350,7 @@ body {
     height: auto;
     margin-left: auto;
     margin-right: auto;
-    @media screen and (max-width: #{$content-width}) {
+    @media screen and (max-width: #{$content-width + 50px}) {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -494,6 +494,7 @@ body {
                     cursor: pointer;
                     border-radius: 0.25rem;
                     transition: 0.2s;
+                    border: solid 2px #552f2f;
                     &:hover {
                         background-color: #da7373;
                         transition: 0.2s;
@@ -512,7 +513,7 @@ body {
     margin-left: auto;
     margin-right: auto;
     margin-top: 7.5rem;
-    @media screen and (max-width: #{$content-width}) {
+    @media screen and (max-width: #{$content-width + 50px}) {
         padding-left: 2rem;
         padding-right: 2rem;
     }
@@ -656,6 +657,15 @@ body {
     margin-right: auto;
     margin-top: 7.5rem;
     margin-bottom: 7.5rem;
+    @media screen and (max-width: #{$content-width + 50px}) {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+    @include breakpoint(xs) {
+        max-width: 80%;
+        padding-left: 0;
+        padding-right: 0;
+    }
     .contact-description {
         margin-bottom: 0.5rem;
     }
@@ -681,16 +691,69 @@ body {
         flex-direction: column;
         justify-content: center;
         position: relative;
+        @include breakpoint(s) {
+            max-width: 100%;
+            width: 100%;
+            padding-left: 0;
+            padding-right: 0;
+        }
+        @include breakpoint(xs) {
+            padding: 2rem;
+        }
         .stamp {
             position: absolute;
             right: 21px;
             top: 18px;
             width: 79px;
             transform: rotate(2deg);
+            @include breakpoint(xs) {
+                right: -18px;
+                top: -42px;
+                transform: rotate(18deg);
+                filter: drop-shadow(-2px 7px 5px #0000003d);
+            }
         }
         .input-section {
             display: flex;
             justify-content: space-around;
+            @include breakpoint(xs) {
+                flex-direction: column;
+            }
+            // Honeypot
+            .input-website {
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 0;
+                width: 0;
+                opacity: 0;
+                z-index: -1;
+            }
+            .message {
+                position: absolute;
+                right: 0rem;
+                padding-left: 0.5rem;
+                padding-top: 0.5rem;
+                padding-bottom: 0.5rem;
+                padding-right: 2rem;
+                top: 2.5rem;
+                font-size: 18px;
+                border-top: dashed 3px #ffffff50;
+                border-left: dashed 3px #ffffff50;
+                border-bottom: dashed 3px #ffffff50;
+                @include breakpoint(xs) {
+                    top: -15px;
+                    box-shadow: -3px 4px 7px -2px rgba(0,0,0,0.2);
+                }
+                &.error {
+                    background-color: #e98080;
+                    color: #fff;
+                }
+                &.succes {
+                    background-color: #5ed75e;
+                    color: #fff;
+                }
+            }
             textarea {
                 border: 0;
                 outline: none;
@@ -703,16 +766,26 @@ body {
                 resize: none;
                 // font-family: 'Meie Script';
                 // font-size: 18px;
+                @include breakpoint(xs) {
+                    margin-bottom: 2rem;
+                    min-height: 20vh;
+                }
             }
             .vertical-divider {
                 width: 1px;
                 height: 16vh;
-                background-color: rgba(0, 0, 0, 0.1);;
+                background-color: rgba(0, 0, 0, 0.1);
+                @include breakpoint(xs) {
+                    display: none;
+                }
             }
             .sender-wrapper {
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-end;
+                @include breakpoint(xs) {
+                    width: 60%;
+                }
             }
             input {
                 border: 0;
@@ -726,6 +799,19 @@ body {
                 padding-top: 0.5rem;
                 padding-bottom: 0.5rem;
                 margin-bottom: 0.5rem;
+            }
+            .submit {
+                padding-top: 0.25rem;
+                padding-bottom: 0.25rem;
+                background-color: #e98080;
+                cursor: pointer;
+                border-radius: 0.25rem;
+                transition: 0.2s;
+                border: solid 2px #552f2f;
+                &:hover {
+                    background-color: #da7373;
+                    transition: 0.2s;
+                }
             }
         }
     }
@@ -748,7 +834,7 @@ body.blog-overview {
         height: auto;
         margin-left: auto;
         margin-right: auto;
-        @media screen and (max-width: #{$content-width}) {
+        @media screen and (max-width: #{$content-width + 50px}) {
             padding-left: 2rem;
             padding-right: 2rem;
         }
@@ -854,7 +940,7 @@ body.blog-page {
             @media screen and (max-width: calc(#{$blog-content-width} + 200px)) {
                 width: $blog-content-width;
             }
-            @media screen and (max-width: #{$blog-content-width}) {
+            @media screen and (max-width: #{$blog-content-width + 50px}) {
                 width: 100%;
             }
             img {
@@ -919,7 +1005,7 @@ body.blog-page {
             a {
                 color: $primary-color;
             }
-            @media screen and (max-width: #{$blog-content-width}) {
+            @media screen and (max-width: #{$blog-content-width + 50px}) {
                 padding-left: 2.5rem;
                 padding-right: 2.5rem;
             }
@@ -941,7 +1027,7 @@ body.about {
             top: 25%;
             max-width: 580px;
             font-size: 32px;
-            @media screen and (max-width: #{$content-width}) {
+            @media screen and (max-width: #{$content-width + 50px}) {
                 left: 5%;
                 font-size: 30px;
                 max-width: 450px;

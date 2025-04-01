@@ -21,6 +21,7 @@
     const message = ref('')
     const name = ref('')
     const email = ref('')
+    const website = ref('') // <--- Honeypot!!
     const successMessage = ref('')
     const errorMessage = ref('')
     const loading = ref(false)
@@ -51,7 +52,8 @@
                 body: JSON.stringify({
                     message: message.value,
                     name: name.value,
-                    email: email.value
+                    email: email.value,
+                    website: website.value,
                 })
             })
 
@@ -64,6 +66,7 @@
                 message.value = ''
                 name.value = ''
                 email.value = ''
+                website.value = ''
             } else {
                 errorMessage.value = data?.error || 'Something went wrong'
             }
@@ -71,7 +74,7 @@
             errorMessage.value = 'Error sending message. Please try again.'
             console.error(err)
         } finally {
-            loading.value = false
+            loading.value = false;
         }
     }
 </script>
@@ -223,16 +226,17 @@
             <h1>Message me</h1>
         </div>
         <form @submit.prevent="submitForm" class="envelope">
-            <img src="/img/stamp_compressed.webp" class="stamp" alt="">
+            <img src="/img/stamp.webp" class="stamp" alt="">
             <div class="input-section">
+                <input v-model="website" type="text" name="website" class="input-website" tabindex="-1" autocomplete="off">
+                <span v-if="successMessage" class="succes message">{{ successMessage }}</span>
+                <span v-if="errorMessage" class="error message">{{ errorMessage }}</span>
                 <textarea v-model="message" name="message" placeholder="Message"></textarea>
                 <div class="vertical-divider"></div>
                 <div class="sender-wrapper">
                     <input v-model="name" type="text" placeholder="Name">
                     <input v-model="email" type="text" placeholder="E-mail">
-                    <button type="submit" :disabled="loading">{{ loading? 'Sending' : 'Send' }}</button>
-                    <p v-if="successMessage" class="succes message">{{ successMessage }}</p>
-                    <p v-if="errorMessage" class="error message">{{ errorMessage }}</p>
+                    <button type="submit" class="submit" :disabled="loading">{{ loading? 'Sending' : 'Send' }}</button>
                 </div>
             </div>
         </form>

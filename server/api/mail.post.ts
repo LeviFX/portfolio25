@@ -3,12 +3,14 @@
 import { defineEventHandler, readBody } from 'h3'
 import nodemailer from 'nodemailer'
 
+// TODO: Better validation, errors & feedback
+
 export default defineEventHandler(async (event) => {
 
   const config = useRuntimeConfig(event);
 
   try {
-    const { message, name, email } = await readBody(event)
+    const { message, name, email, website } = await readBody(event)
 
     // Very basic check if empty validation
     if (!message || !name || !email) {
@@ -16,6 +18,14 @@ export default defineEventHandler(async (event) => {
       return {
         success: false,
         error: 'Please fill in all fields.'
+      }
+    }
+
+    // If "website" has a value, it is likely a bot has filled in the form
+    if (website) {
+      return {
+        success: false,
+        error: 'Submission error'
       }
     }
 

@@ -1,8 +1,8 @@
 !TODO:
 
-- Seo management, html headers
 - Footer
 - About
+- 1 Blog content
 - og:image maken
 
 ## Projects

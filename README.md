@@ -1,12 +1,8 @@
 !TODO:
 
-- Error 404 page
 - Seo management, html headers
 - Footer
-- Contact section
-- Contact captcha
 - About
-- Statistics
 
 ## Projects
 Available metadata example:

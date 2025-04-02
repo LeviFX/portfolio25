@@ -235,7 +235,7 @@
                 <div class="vertical-divider"></div>
                 <div class="sender-wrapper">
                     <input v-model="name" type="text" placeholder="Name">
-                    <input v-model="email" type="text" placeholder="E-mail">
+                    <input v-model="email" type="email" placeholder="E-mail">
                     <button type="submit" class="submit" :disabled="loading">{{ loading? 'Sending' : 'Send' }}</button>
                 </div>
             </div>

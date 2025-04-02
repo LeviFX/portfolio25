@@ -1,5 +1,3 @@
-// server/api/contact.post.ts
-
 import { defineEventHandler, readBody } from 'h3'
 import nodemailer from 'nodemailer'
 
@@ -14,7 +12,6 @@ export default defineEventHandler(async (event) => {
 
     // Very basic check if empty validation
     if (!message || !name || !email) {
-      // Return an error object if missing any required fields
       return {
         success: false,
         error: 'Please fill in all fields.'

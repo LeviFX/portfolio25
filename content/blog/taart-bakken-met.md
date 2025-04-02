@@ -8,7 +8,7 @@ highlight: false
 visible: true
 date: 26-2-2025
 image: /img/cover2.png
-lang: EN
+lang: NL
 ---
 > test dit is een blokquote
 [levi]

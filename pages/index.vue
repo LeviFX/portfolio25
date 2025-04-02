@@ -2,6 +2,9 @@
 
     import { ref } from 'vue'
 
+    const config = useRuntimeConfig();
+    const siteUrl = config.public.prodUrl
+
     // Load blogs from content/blog dir
     const { data: blogs } = await useAsyncData('blog', () => queryCollection('blog')
     .select('title', 'image', 'path', 'highlight', 'category', 'lang')
@@ -17,6 +20,19 @@
     .order('order', 'ASC')
     .all())
 
+    // SEO & Metadata
+    useSeoMeta({
+        title: 'Portfolio',
+        ogTitle: `Levi's portfolio`,
+        description: 'The main overview of my projects, articles and contact',
+        ogDescription: `Levi's portfolio featuring projects, articles & more`,
+        ogImage: siteUrl + '/img/anno.webp',
+        twitterTitle: `Levi's portfolio`,
+        twitterDescription: `Levi's portfolio featuring projects, articles & more`,
+        twitterImage: siteUrl + '/img/anno.webp',
+        twitterCard: 'summary_large_image',
+    })
+    
     // Retrieve contact form data
     const message = ref('')
     const name = ref('')

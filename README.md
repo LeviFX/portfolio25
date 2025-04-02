@@ -3,6 +3,7 @@
 - Seo management, html headers
 - Footer
 - About
+- og:image maken
 
 ## Projects
 Available metadata example:

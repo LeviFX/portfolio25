@@ -8,9 +8,15 @@ export default defineNuxtConfig({
     mailUser: process.env.NUXT_MAIL_USER,
     mailPass: process.env.NUXT_MAIL_PASS,
     mailPersonal: process.env.NUXT_PERSONAL_MAIL,
+    public: {
+      prodUrl: process.env.NUXT_PUBLIC_SITE_URL,
+    }
   },
   app: {
     head: {
+      htmlAttrs: {
+        lang: 'en'
+      },
       script: [{
         'data-goatcounter': 'https://levianalytics.goatcounter.com/count',
         async: true,

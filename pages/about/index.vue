@@ -1,5 +1,20 @@
 <script setup>
 
+    const config = useRuntimeConfig();
+    const siteUrl = config.public.prodUrl
+
+    useSeoMeta({
+        title: 'About',
+        ogTitle: `About Levi`,
+        description: 'All about me',
+        ogDescription: `All about Levi`,
+        ogImage: siteUrl + '/img/anno.webp',
+        twitterTitle: `About Levi`,
+        twitterDescription: `All about Levi`,
+        twitterImage: siteUrl + '/img/anno.webp',
+        twitterCard: 'summary_large_image',
+    })
+
     useHead({
     bodyAttrs: {
         class: 'about'

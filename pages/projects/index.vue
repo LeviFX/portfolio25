@@ -1,9 +1,26 @@
 <script setup>
+
+    const config = useRuntimeConfig();
+    const siteUrl = config.public.prodUrl
+
     // Load projects from content/project dir
     const { data: projects } = await useAsyncData('project', () => queryCollection('project')
     .select('title', 'image', 'link', 'category', 'contrast', 'size')
     .order('order', 'ASC')
     .all())
+
+    // SEO & Metadata
+    useSeoMeta({
+        title: 'Projects',
+        ogTitle: `Levi's projects`,
+        description: `All the projects I've been working on`,
+        ogDescription: 'Projects Levi has been working on',
+        ogImage: siteUrl + '/img/anno.webp',
+        twitterTitle: `Levi's projects`,
+        twitterDescription: `Projects Levi has been working on`,
+        twitterImage: siteUrl + '/img/anno.webp',
+        twitterCard: 'summary_large_image',
+    })
 
     useHead({
     bodyAttrs: {

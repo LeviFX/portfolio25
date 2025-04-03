@@ -1,5 +1,5 @@
 ---
-title: Cathedral
+title: Photorealism
 category: '#3d'
 link: https://www.behance.net/gallery/157122647/Cathedral
 order: 6

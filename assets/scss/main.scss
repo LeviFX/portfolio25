@@ -397,7 +397,7 @@ body {
                         font-size: 38px;
                     }
                     @include breakpoint(xs) {
-                        font-size: 28px;
+                        font-size: 36px;
                     }
                 }
             }
@@ -422,16 +422,20 @@ body {
                         bottom: 20%;
                     }
                     @include breakpoint(xs) {
-                        font-size: 28px;
+                        font-size: 36px;
                     }
                 }
             }
             &.contrast {
                 .project-description {
-                    background-color: rgb(45 45 45 / 38%);
-                    backdrop-filter: blur(2px);
+                    background-color: #0000007e;
+                    backdrop-filter: blur(3px);
                     left: 0;
                     padding-left: 10px;
+                    padding-top: 0.5rem;
+                    padding-bottom: 0.5rem;
+                    padding-right: 2rem;
+                    border-top-right-radius: 1rem;
                 }
             }
             .category {
@@ -454,13 +458,15 @@ body {
                 color: #fff;
                 font-size: 50px;
                 font-family: 'Noto Serif';
+                text-shadow: 1px 1px 1px #00000017;
                 z-index: 1;
                 @media screen and (max-width: 1075px) {
                     font-size: 38px;
                     bottom: 20%;
                 }
                 @include breakpoint(xs) {
-                    font-size: 28px;
+                    font-size: 36px;
+                    max-width: 68%;
                 }
             }
             .project-thumbnail {
@@ -1020,6 +1026,11 @@ body.about {
             top: 25%;
             max-width: 580px;
             font-size: 32px;
+            color: #3f3312;
+            text-shadow: 1px 1px rgba($primary-color, 0.2);
+            strong {
+                color: $primary-color;
+            }
             @media screen and (max-width: #{$content-width + 50px}) {
                 left: 5%;
                 font-size: 30px;

@@ -1,5 +1,5 @@
 ---
-title: Feyenoord museum
+title: Feyenoord interactive panel
 category: '#dev'
 link: https://www.behance.net/gallery/162487117/Feyenoord-trainers
 order: 7

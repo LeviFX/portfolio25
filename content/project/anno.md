@@ -1,5 +1,5 @@
 ---
-title: Anno museum
+title: Anno interactive panel
 category: '#dev'
 link: https://www.behance.net/gallery/162488645/Anno
 order: 10

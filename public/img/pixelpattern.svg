@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200px" height="10px" viewBox="0 0 200 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54.1 (76490) - https://sketchapp.com -->
+    <g id="zuurstok" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M0,0 L10,0 L10,10 L0,10 L0,0 Z M20,8.8817842e-16 L30,8.8817842e-16 L30,10 L20,10 L20,8.8817842e-16 Z M40,0 L50,0 L50,10 L40,10 L40,0 Z M60,8.8817842e-16 L70,8.8817842e-16 L70,10 L60,10 L60,8.8817842e-16 Z M80,0 L90,0 L90,10 L80,10 L80,0 Z M100,0 L110,0 L110,10 L100,10 L100,0 Z M120,0 L130,0 L130,10 L120,10 L120,0 Z M140,0 L150,0 L150,10 L140,10 L140,0 Z M160,0 L170,0 L170,10 L160,10 L160,0 Z M180,0 L190,0 L190,10 L180,10 L180,0 Z" id="Combined-Shape" fill="#b11e11"></path>
+        <g id="Group" transform="translate(10.000000, 0.000000)">
+            <rect id="Rectangle" fill="#d1c0eb" x="0" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#519e17" x="20" y="8.8817842e-16" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#9edbcf" x="40" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#e2e622" x="60" y="8.8817842e-16" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#c29edb" x="80" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#0a0a0a" x="100" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#c1db9e" x="120" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#54a845" x="140" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#dbb09e" x="160" y="0" width="10" height="10"></rect>
+            <rect id="Rectangle" fill="#6d45a8" x="180" y="0" width="10" height="10"></rect>
+        </g>
+    </g>
+</svg>

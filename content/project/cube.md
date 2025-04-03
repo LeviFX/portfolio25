@@ -1,5 +1,5 @@
 ---
-title: Cube
+title: Texturing
 category: '#3d'
 link: https://www.behance.net/gallery/137450997/Cube
 order: 9

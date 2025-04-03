@@ -16,10 +16,10 @@
         ogTitle: `Levi's blog`,
         description: 'Repository of my written articles',
         ogDescription: `Repository of Levi's written articles`,
-        ogImage: siteUrl + '/img/anno.webp',
+        ogImage: siteUrl + '/img/ogimage.webp',
         twitterTitle: `Levi's blog`,
         twitterDescription: `Repository of Levi's written articles`,
-        twitterImage: siteUrl + '/img/anno.webp',
+        twitterImage: siteUrl + '/img/ogimage.webp',
         twitterCard: 'summary_large_image',
     })
 
@@ -44,7 +44,7 @@
                     {{ blog.title }}
                 </span>
             </div>
-                <img :src="blog.image" class="blog-thumbnail" alt="">
+                <img :src="blog.image" class="blog-thumbnail" :alt="blog.title">
             </NuxtLink>
         </div>
         <div v-else class="no-blog">

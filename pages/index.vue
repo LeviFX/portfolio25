@@ -26,10 +26,10 @@
         ogTitle: `Levi's portfolio`,
         description: 'The main overview of my projects, articles and contact',
         ogDescription: `Levi's portfolio featuring projects, articles & more`,
-        ogImage: siteUrl + '/img/anno.webp',
+        ogImage: siteUrl + '/img/ogimage.webp',
         twitterTitle: `Levi's portfolio`,
         twitterDescription: `Levi's portfolio featuring projects, articles & more`,
-        twitterImage: siteUrl + '/img/anno.webp',
+        twitterImage: siteUrl + '/img/ogimage.webp',
         twitterCard: 'summary_large_image',
     })
     
@@ -88,7 +88,6 @@
             }
         } catch (err) {
             errorMessage.value = 'Error sending message. Please try again.'
-            console.error(err)
         } finally {
             loading.value = false;
         }
@@ -133,7 +132,7 @@
                 <span class="greeting-developer">Developer</span>
             </span>
             <span class="sentence n3d">
-                <div class="expression"><img src="/img/passionate.png" alt="passionate"></div> <span class="index">about</span> <span class="greeting-3d">3D</span>
+                <div class="expression"><img src="/img/passionate.webp" alt="passionate"></div> <span class="index">about</span> <span class="greeting-3d">3D</span>
             </span>
             <br>
             <span class="sentence design">
@@ -157,7 +156,7 @@
         </div>
         <div class="blob-gradient"></div>
         <div class="blob-gradient-2"></div>
-        <img class="swipeme" src="/img/swipe.webp" alt="">
+        <img class="swipeme" src="/img/swipe.webp" alt="Reference to swipe">
         <characterRender />
     </div>
     <div class="projects-section">
@@ -172,7 +171,7 @@
                 <div class="project-description">
                     {{ project.title }}
                 </div>
-                <img :src="project.image" class="project-thumbnail" alt="">
+                <img :src="project.image" class="project-thumbnail" :alt="project.title">
             </NuxtLink>
             <div class="view-more">
                 Want to see more?
@@ -197,7 +196,7 @@
                             {{ blog.title }}
                         </span>
                     </div>
-                    <img :src="blog.image" class="blog-thumbnail" alt="">
+                    <img :src="blog.image" class="blog-thumbnail" :alt="blog.title">
                     </NuxtLink>
                 </div>
                 <div v-else class="card dummy">
@@ -222,7 +221,7 @@
                             {{ blog.title }}
                         </span>
                     </div>
-                        <img :src="blog.image" class="blog-thumbnail" alt="">
+                        <img :src="blog.image" class="blog-thumbnail" :alt="blog.title">
                     </NuxtLink>
                 </div>
                 <div v-for="n in (2 - blogs.filter(blog => !blog.highlight).length)" :key="'dummy-' + n" class="card dummy">
@@ -232,7 +231,7 @@
                         No blog yet..
                         </span>
                     </div>
-                    <img src="/img/notfound.webp" class="blog-thumbnail" alt="">
+                    <img src="/img/notfound.webp" class="blog-thumbnail" alt="Blog not found">
                 </div>
             </div>
         </div>

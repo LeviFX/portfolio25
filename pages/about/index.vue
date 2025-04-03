@@ -8,10 +8,10 @@
         ogTitle: `About Levi`,
         description: 'All about me',
         ogDescription: `All about Levi`,
-        ogImage: siteUrl + '/img/anno.webp',
+        ogImage: siteUrl + '/img/ogimage.webp',
         twitterTitle: `About Levi`,
         twitterDescription: `All about Levi`,
-        twitterImage: siteUrl + '/img/anno.webp',
+        twitterImage: siteUrl + '/img/ogimage.webp',
         twitterCard: 'summary_large_image',
     })
 

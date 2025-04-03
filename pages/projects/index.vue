@@ -15,10 +15,10 @@
         ogTitle: `Levi's projects`,
         description: `All the projects I've been working on`,
         ogDescription: 'Projects Levi has been working on',
-        ogImage: siteUrl + '/img/anno.webp',
+        ogImage: siteUrl + '/img/ogimage.webp',
         twitterTitle: `Levi's projects`,
         twitterDescription: `Projects Levi has been working on`,
-        twitterImage: siteUrl + '/img/anno.webp',
+        twitterImage: siteUrl + '/img/ogimage.webp',
         twitterCard: 'summary_large_image',
     })
 
@@ -39,7 +39,7 @@
                 <div class="project-description">
                     {{ project.title }}
                 </div>
-                <img :src="project.image" class="project-thumbnail" alt="">
+                <img :src="project.image" class="project-thumbnail" :alt="project.title">
             </NuxtLink>
         </div>
     </div>

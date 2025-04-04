@@ -26,7 +26,10 @@
 <template>
     <div class="about-landing">
         <div class="about-content">
-            Lorem ipsum <strong>test</strong> dolor sit amet consectetur adipisicing elit. Dicta laborum necessitatibus voluptatibus temporibus tempore, quasi ratione explicabo ipsa dolore excepturi facere beatae laboriosam distinctio, placeat facilis nam! Similique, sint fugit, iusto dicta sequi exercitationem culpa perspiciatis id totam animi ea iste quos nostrum eos in accusamus labore ipsa voluptatum reiciendis.
+            <strong>Brilliant</strong><br>
+            Said probably maybe someone, once.<br><br>
+            What I do have, is a love for obscure knowledge, fine details, beauty and philosophising about stuff I might create.<br><br>
+            Hi I'm Levi, 22 years old and would like to classify myself as a creative, developer and an all-round generalist specialised in doing everything
         </div>
         <aboutcharacterRender />
     </div>

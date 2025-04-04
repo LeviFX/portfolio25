@@ -1,9 +1,8 @@
 !TODO:
 
-- Footer
+- Swipe down animation landing
 - About
 - 1 Blog content
-- og:image maken
 
 ## Projects
 Available metadata example:

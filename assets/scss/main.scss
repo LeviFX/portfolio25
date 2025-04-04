@@ -379,7 +379,7 @@ body {
             overflow: hidden;
             @include breakpoint(s) {
                 min-width: unset;
-                min-height: 390px;
+                min-height: 350px;
             }
             &:hover {
                 .project-thumbnail {
@@ -819,7 +819,7 @@ body {
 // Projects overview page (/projects)
 body.projects-overview {
     .bento-grid {
-        padding-top: 10rem;
+        padding-top: 9rem;
         padding-bottom: 5rem;
     }
 }
@@ -828,7 +828,7 @@ body.projects-overview {
 body.blog-overview {
     .blogs-page {
         min-height: 100vh;
-        padding-top: 10rem;
+        padding-top: 9rem;
         max-width: $content-width;
         height: auto;
         margin-left: auto;

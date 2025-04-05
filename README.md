@@ -1,6 +1,5 @@
 !TODO:
 
-- Swipe down animation landing
 - About
 - 1 Blog content
 

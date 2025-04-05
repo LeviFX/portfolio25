@@ -1,5 +1,26 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
+import { queryCollection } from '@nuxt/content'
+
 export default defineNuxtConfig({
+  ssr: true,
+  target: 'static',
+  nitro: {
+    prerender: {
+      routes: async () => {
+        const blogs = await queryCollection('blog').all() // Fetch all blogs
+        return [
+          '/', // Homepage
+          '/projects', // Projects page
+          '/blog', // Blog overview page
+          '/about', // About page
+          ...blogs.map((blog) => `/blog/${blog.slug}`), // Dynamic blog slugs
+        ]
+      },
+    },
+  },
+  experimental: {
+    revalidate: true
+  },
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
   css: ['~/assets/scss/main.scss'],

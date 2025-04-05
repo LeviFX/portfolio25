@@ -11,14 +11,18 @@
     .where('main', '=', true)
     .order('order', 'ASC')
     .limit(3)
-    .all())
+    .all(), {
+        revalidate: 60,
+    })
 
     // Load projects from content/project dir
     const { data: projects } = await useAsyncData('project', () => queryCollection('project')
     .select('title', 'image', 'link', 'category', 'contrast', 'size')
     .where('main', '=', true)
     .order('order', 'ASC')
-    .all())
+    .all(), {
+        revalidate: 60,
+    })
 
     // SEO & Metadata
     useSeoMeta({
@@ -98,7 +102,7 @@
     <div class="landing">
         <div class="greeting-text">
             <span class="sentence developer">
-                I am a <span class="greeting-creative">
+                <NuxtLink to="/about">I</NuxtLink>&nbsp;am a <span class="greeting-creative">
                     <div class="warped-text">
                         <span class="warp">
                             c
@@ -154,6 +158,7 @@
                 Design<span class="dot">.</span>
             </div>
         </div>
+        <svg class="down-arrow" xmlns="http://www.w3.org/2000/svg" width="2vh" height="2vh" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><path fill="currentColor" d="M11.178 19.569a.998.998 0 0 0 1.644 0l9-13A.999.999 0 0 0 21 5H3a1.002 1.002 0 0 0-.822 1.569l9 13z"></path></svg>
         <div class="blob-gradient"></div>
         <div class="blob-gradient-2"></div>
         <img class="swipeme" src="/img/swipe.webp" alt="Reference to swipe">

@@ -4,6 +4,8 @@
   const route = useRoute()
   const { data: blogData } = await useAsyncData(route.path, () => {
     return queryCollection('blog').path(route.path).first()
+  }, {
+    revalidate: 60,
   })
 
   const siteUrl = config.public.prodUrl

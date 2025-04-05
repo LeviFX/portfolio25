@@ -1,6 +1,7 @@
 <script setup lang="js">
 
 // COPY of characterRender.vue but without the mouse following, auto rotate & different camera position
+// This is for the /about page
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { onMounted } from 'vue';

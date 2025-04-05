@@ -8,9 +8,7 @@
     .select('title', 'image', 'path', 'highlight', 'category', 'lang')
     .order('highlight', 'DESC')
     .order('order', 'ASC')
-    .all(), {
-        revalidate: 60,
-    })
+    .all())
 
     // SEO & Metadata
     useSeoMeta({

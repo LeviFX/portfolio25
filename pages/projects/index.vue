@@ -7,9 +7,7 @@
     const { data: projects } = await useAsyncData('project', () => queryCollection('project')
     .select('title', 'image', 'link', 'category', 'contrast', 'size')
     .order('order', 'ASC')
-    .all(), {
-        revalidate: 60,
-    })
+    .all())
 
     // SEO & Metadata
     useSeoMeta({

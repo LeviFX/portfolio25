@@ -11,18 +11,14 @@
     .where('main', '=', true)
     .order('order', 'ASC')
     .limit(3)
-    .all(), {
-        revalidate: 60,
-    })
+    .all())
 
     // Load projects from content/project dir
     const { data: projects } = await useAsyncData('project', () => queryCollection('project')
     .select('title', 'image', 'link', 'category', 'contrast', 'size')
     .where('main', '=', true)
     .order('order', 'ASC')
-    .all(), {
-        revalidate: 60,
-    })
+    .all())
 
     // SEO & Metadata
     useSeoMeta({

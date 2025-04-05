@@ -479,6 +479,7 @@ h1, h2, h3, h4, h5, h6 {
                 top: 10px;
                 z-index: 1;
                 font-family: 'Noto Serif';
+                box-shadow: 2px 2px 4px -3px rgb(0 0 0 / 38%);
             }
             .project-description {
                 position: absolute;
@@ -1046,19 +1047,21 @@ body.blog-page {
 body.about {
     text-rendering: optimizeLegibility;
     .about-landing {
-        height: 100vh;
+        min-height: 100vh;
+        height: auto;
         width: 100%;
         background-color: #f8f6ee;
         background-size: 65px 65px;
         background-image: radial-gradient(circle, #0e0e0e50 1px, rgba(0, 0, 0, 0) 1px);
         .about-content {
-            position: absolute;
+            position: relative;
             left: 20%;
-            top: 25%;
+            padding-top: 28vh;
             max-width: 580px;
             font-size: 32px;
             color: #3f3312;
             text-shadow: 1px 1px rgba($primary-color, 0.2);
+            padding-bottom: 2rem;
             strong {
                 color: $primary-color;
             }
@@ -1070,11 +1073,10 @@ body.about {
             @include breakpoint(xs) {
                 width: 80%;
                 left: 0;
-                top: 45%;
+                padding-top: 45vh;
                 position: relative;
                 margin-left: auto;
                 margin-right: auto;
-                text-align: justify;
                 text-wrap: pretty;
                 font-size: 26px;
             }
@@ -1088,6 +1090,9 @@ body.about {
             width: 65%;
             height: 85vh;
             overflow: hidden;
+            @include breakpoint(-xs) {
+                pointer-events: none;
+            }
             @include breakpoint(xs) {
                 min-width: 250px;
                 min-height: 250px;

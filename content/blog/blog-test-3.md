@@ -4,7 +4,7 @@ category: Category 3
 description: Blog test 3 category
 order: 1
 main: false
-highlight: true
+highlight: false
 visible: false
 date: 26-2-2025
 image: /img/cube.webp

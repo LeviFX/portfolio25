@@ -1,8 +1,3 @@
-!TODO:
-
-- About
-- 1 Blog content
-
 ## Projects
 Available metadata example:
 

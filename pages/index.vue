@@ -225,7 +225,8 @@
                         <img :src="blog.image" class="blog-thumbnail" :alt="blog.title">
                     </NuxtLink>
                 </div>
-                <div v-for="n in (2 - blogs.filter(blog => !blog.highlight).length)" :key="'dummy-' + n" class="card dummy">
+                <div>
+                    <div v-for="n in (2 - blogs.filter(blog => !blog.highlight).length)" :key="'dummy-' + n" class="card dummy">
                     <div class="blog-content">
                         <div class="blog-category"></div>
                         <span class="blog-description">
@@ -233,6 +234,7 @@
                         </span>
                     </div>
                     <img src="/img/error.webp" class="blog-thumbnail" alt="Blog not found">
+                </div>
                 </div>
             </div>
         </div>

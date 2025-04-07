@@ -5,7 +5,7 @@ export default defineNuxtConfig({
     '/': { isr: 60 },
     '/projects': { isr: 60 },
     '/blog': { isr: 60 },
-    '/about': { isr: 60 },
+    '/about': { prerender: true},
     '/blog/**': { isr: 60 },
   },
   compatibilityDate: '2024-11-01',

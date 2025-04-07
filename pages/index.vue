@@ -207,7 +207,7 @@
                         No blog yet..
                         </span>
                     </div>
-                    <img src="/img/notfound.webp" class="blog-thumbnail" alt="">
+                    <img src="/img/error.webp" class="blog-thumbnail" alt="">
                 </div>
             </div>
             <div class="featured">
@@ -232,7 +232,7 @@
                         No blog yet..
                         </span>
                     </div>
-                    <img src="/img/notfound.webp" class="blog-thumbnail" alt="Blog not found">
+                    <img src="/img/error.webp" class="blog-thumbnail" alt="Blog not found">
                 </div>
             </div>
         </div>

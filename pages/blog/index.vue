@@ -6,6 +6,7 @@
     // Load blogs from content/blog dir
     const { data: blogs } = await useAsyncData('blog', () => queryCollection('blog')
     .select('title', 'image', 'path', 'highlight', 'category', 'lang')
+    .where('visible', '=', true)
     .order('highlight', 'DESC')
     .order('order', 'ASC')
     .all())

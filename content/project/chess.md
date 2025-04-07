@@ -1,5 +1,5 @@
 ---
-title: Close-up rendering
+title: Close-up chess
 category: '#3d'
 link: https://www.behance.net/gallery/158621339/Chess
 order: 2

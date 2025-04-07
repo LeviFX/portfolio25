@@ -1,23 +1,23 @@
 ---
-title: Taart bakken met CSS
-category: Dev
-description: Hoe bak je een taart met css
+title: Blog test 2
+category: Category 2
+description: Blog test 2 category
 order: 2
-main: true
+main: false
 highlight: false
-visible: true
+visible: false
 date: 26-2-2025
-image: /img/cover2.png
+image: /img/forest.webp
 lang: NL
 ---
-> test dit is een blokquote
-[levi]
+> Test blockquote
+[test]
 
 # test
 
 Lorem ipsum odor amet, consectetuer adipiscing elit. Ullamcorper cubilia justo cubilia hac ridiculus ante dui porttitor. Erat inceptos phasellus at pretium nostra habitasse. Phasellus neque vestibulum donec augue orci est. Facilisis a praesent iaculis metus, gravida quam. Dictumst ridiculus netus primis lobortis inceptos rhoncus dui. Suscipit metus erat imperdiet quisque consequat fames suscipit ipsum. Rhoncus facilisi himenaeos tincidunt tristique pulvinar viverra et arcu. Torquent ultricies amet quisque mollis nam in suscipit.
 
-![my image](/img/cover2.png)
+![my image](/img/ogimage.webp)
 
 Amet turpis dignissim consectetur massa inceptos. Ad proin natoque euismod ultricies scelerisque sodales dictum mattis aliquam. Ipsum curae cursus dolor diam malesuada interdum blandit phasellus. Sapien diam per a taciti dapibus dictumst purus eleifend. Sodales placerat litora ipsum habitasse fames nec. Elementum netus vel non faucibus eleifend bibendum tortor volutpat.
 

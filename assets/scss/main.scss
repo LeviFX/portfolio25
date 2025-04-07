@@ -257,10 +257,10 @@ h1, h2, h3, h4, h5, h6 {
     }
     .greeting-text-mobile {
         display: none;
-        font-size: 54px;
+        font-size: 40px;
         color: $primary-color;
         position: absolute;
-        top: 18%;
+        top: 15%;
         left: 0;
         right: 0;
         width: 65%;
@@ -275,7 +275,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     .swipeme {
         position: absolute;
-        bottom: 17%;
+        bottom: 15%;
         left: 19%;
         transform: rotateZ(18deg);
         height: auto;
@@ -296,7 +296,7 @@ h1, h2, h3, h4, h5, h6 {
             min-width: 250px;
             min-height: 250px;
             position: absolute;
-            bottom: 12%;
+            bottom: 10%;
             left: 0;
             right: 0;
             clip-path: circle(45% at center);
@@ -982,13 +982,16 @@ body.blog-page {
             max-width: $blog-content-width;
             margin-left: auto;
             margin-right: auto;
-            min-height: 100vh;
+            height: auto;
             font-family: 'Spectral';
             font-size: 1.25rem;
             text-align: justify;
             text-wrap: pretty;
             hyphens: auto;
             padding-bottom: 3rem;
+            @include breakpoint(-xs) {
+                min-height: 65vh;
+            }
             @include breakpoint(xs) {
                 font-size: 1.1rem;
             }
@@ -1060,7 +1063,7 @@ body.about {
             font-size: 32px;
             color: #3f3312;
             text-shadow: 1px 1px rgba($primary-color, 0.2);
-            padding-bottom: 2rem;
+            padding-bottom: 3rem;
             strong {
                 color: $primary-color;
             }
